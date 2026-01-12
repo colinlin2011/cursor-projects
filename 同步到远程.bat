@@ -30,8 +30,34 @@ echo 正在提交...
 git commit -m "%commit_msg%"
 
 echo.
+REM 检查是否配置了远程仓库
+git remote get-url origin >nul 2>&1
+if %errorlevel% neq 0 (
+    echo.
+    echo ========================================
+    echo [错误] 未配置远程仓库
+    echo ========================================
+    echo.
+    echo 请先配置远程仓库:
+    echo 1. 运行: 配置远程仓库.bat
+    echo 2. 或手动运行: git remote add origin ^<仓库地址^>
+    echo.
+    pause
+    exit /b 1
+)
+
 echo 正在推送到远程仓库...
-git push
+echo.
+
+REM 检查分支名称，如果不是main则重命名
+git branch --show-current | findstr /C:"main" >nul
+if %errorlevel% neq 0 (
+    echo [提示] 当前分支不是main，正在重命名...
+    git branch -M main
+    echo.
+)
+
+git push -u origin main
 
 if %errorlevel% equ 0 (
     echo.
