@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec.bak
+
+# Streamlit
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 打包输出
+dist/
+build/
+
+# 工具项目目录（归档后）- 但保留目录结构
+# tools/
+# 注意：如果需要版本控制，可以取消注释上面的行
+
+# 大文件（使用云盘同步，不使用Git）
+# PDF文件
+*.pdf
+# Word文档（保留Markdown版本）
+*.docx
+# Excel文件（保留Markdown版本，或根据需要取消注释）
+# *.xlsx
+
+# 临时文件和日志
+*.tmp
+*.log
+*.bak
+*.swp
+
+# 注意：
+# - Markdown文件（.md）会被Git跟踪
+# - PDF、Word、Excel等大文件建议使用云盘同步
+# - 如果需要版本控制Excel，可以取消 *.xlsx 的注释
