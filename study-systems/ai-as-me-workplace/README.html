@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+</head>
+<body>
+<h1 id="ai-as-me-工作协作平台">AI as me 工作协作平台</h1>
+<h2 id="系统介绍">系统介绍</h2>
+<p>AI as me
+工作协作平台是一个多层次的智能工作伙伴系统，专为功能安全专家设计，支持日常工作、团队管理、知识积累，逐步形成从状态层到核心层的完整记忆架构，实现深度协作与融合。</p>
+<h3 id="核心理念">核心理念</h3>
+<ul>
+<li><strong>多层次记忆</strong>：在状态层、情境层、行为层、认知层、核心层逐步建立记忆</li>
+<li><strong>工作闭环</strong>：问题→分析→解决→总结→模式提取→优化→新问题</li>
+<li><strong>知识沉淀</strong>：将工作经验转化为可复用的知识库和工作模式</li>
+<li><strong>认知融合</strong>：在思维模式、决策框架、价值观等层面深度协作</li>
+<li><strong>AI as me</strong>：最终实现”相辅相成，融为一体”的目标</li>
+</ul>
+<h3 id="与学习探索系统的区别">与学习探索系统的区别</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>学习探索系统</th>
+<th>工作协作平台</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用途</td>
+<td>教育、自由探索</td>
+<td>工作协作、专业支持</td>
+</tr>
+<tr>
+<td>用户</td>
+<td>小朋友</td>
+<td>功能安全专家</td>
+</tr>
+<tr>
+<td>重点</td>
+<td>兴趣驱动、知识探索</td>
+<td>专业精准、工作闭环</td>
+</tr>
+<tr>
+<td>记忆架构</td>
+<td>知识图谱、兴趣追踪</td>
+<td>多层次记忆架构</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>学习、探索</td>
+<td>工作、管理、决策</td>
+</tr>
+</tbody>
+</table>
+<p><strong>两者独立运行</strong>：学习探索系统用于教育，工作平台用于工作协作。</p>
+<hr />
+<h2 id="快速开始">快速开始</h2>
+<h3 id="打开系统">1. 打开系统</h3>
+<p>在Cursor中打开本项目目录：</p>
+<pre><code>study-systems/ai-as-me-workplace/</code></pre>
+<h3 id="开始工作">2. 开始工作</h3>
+<p>直接在Cursor聊天窗口输入你的工作需求，例如： - “如何设计ASIL
+D的监控机制用于智驾算法冗余？” - “我需要为XX项目编写安全计划” -
+“帮我分配XX项目的功能安全任务” -
+“明天要和XX主机厂讨论安全需求，帮我准备一下”</p>
+<p>AI会基于你的背景、知识库和记忆提供专业支持。</p>
+<h3 id="查看记录">3. 查看记录</h3>
+<p>你的工作会自动记录在： - <code>work/</code> -
+工作记录（项目、任务、文档、会议、决策） - <code>team/</code> -
+团队管理（任务分配、进度跟踪、协作记录） - <code>knowledge/</code> -
+知识库（标准知识、技术知识、工作模式） - <code>memory/</code> -
+记忆架构（状态、情境、行为、认知、核心层） - <code>insights/</code> -
+洞察和总结（周度洞察、月度回顾、成长追踪） - <code>profile/</code> -
+工作画像（工作画像、专业能力地图、协作风格） -
+<code>capabilities/</code> - AI能力（Skill、Agent、MCP、本地工具）</p>
+<hr />
+<h2 id="系统功能">系统功能</h2>
+<h3 id="工作协作">1. 工作协作</h3>
+<h4 id="项目管理">项目管理</h4>
+<ul>
+<li>项目规划、进度跟踪、风险识别</li>
+<li>项目记录：<code>work/projects/projects/</code></li>
+</ul>
+<h4 id="任务管理">任务管理</h4>
+<ul>
+<li>任务分解、优先级、状态跟踪</li>
+<li>任务记录：<code>work/tasks/tasks/</code></li>
+</ul>
+<h4 id="文档协作">文档协作</h4>
+<ul>
+<li>文档编写、评审、版本管理</li>
+<li>文档记录：<code>work/documents/documents/</code></li>
+</ul>
+<h4 id="会议记录">会议记录</h4>
+<ul>
+<li>会议纪要、行动项跟踪</li>
+<li>会议记录：<code>work/meetings/meetings/</code></li>
+</ul>
+<h4 id="决策记录">决策记录</h4>
+<ul>
+<li>决策过程、依据、结果、反思</li>
+<li>决策记录：<code>work/decisions/decisions/</code></li>
+</ul>
+<h3 id="团队管理">2. 团队管理</h3>
+<h4 id="任务分配">任务分配</h4>
+<ul>
+<li>任务分解、人员分配、责任明确</li>
+<li>分配记录：<code>team/assignments/assignments/</code></li>
+</ul>
+<h4 id="进度跟踪">进度跟踪</h4>
+<ul>
+<li>个人进度、团队进度、项目进度</li>
+<li>进度跟踪：<code>team/progress/progress-tracker.md</code></li>
+</ul>
+<h4 id="跨部门协作">跨部门协作</h4>
+<ul>
+<li>协作记录、沟通要点、成果跟踪</li>
+<li>协作记录：<code>team/collaboration/collaborations/</code></li>
+</ul>
+<h4 id="工作汇报">工作汇报</h4>
+<ul>
+<li>自动生成周度/月度工作汇报</li>
+<li>工作汇报：<code>team/reviews/</code></li>
+</ul>
+<h3 id="知识库系统">3. 知识库系统</h3>
+<h4 id="标准知识">标准知识</h4>
+<ul>
+<li>ISO 26262、ISO 21448、UNECE法规等</li>
+<li>标准知识：<code>knowledge/standards/</code></li>
+</ul>
+<h4 id="技术知识">技术知识</h4>
+<ul>
+<li>域控制器架构、安全机制、最佳实践</li>
+<li>技术知识：<code>knowledge/technical/</code></li>
+</ul>
+<h4 id="工作模式">工作模式</h4>
+<ul>
+<li>问题解决模式、决策模式、沟通模式、团队管理模式</li>
+<li>工作模式：<code>knowledge/patterns/</code></li>
+</ul>
+<h4 id="经验教训">经验教训</h4>
+<ul>
+<li>工作决策、成功经验、失败教训</li>
+<li>经验教训：<code>knowledge/lessons-learned/</code></li>
+</ul>
+<h3 id="多层次记忆架构核心">4. 多层次记忆架构（核心）</h3>
+<h4 id="状态层state-layer">状态层（State Layer）</h4>
+<ul>
+<li>记录当前工作状态（项目、任务、优先级）</li>
+<li>追踪状态变化历史</li>
+<li>识别状态模式（高压力期、创新期、稳定期）</li>
+<li>文件：<code>memory/state/</code></li>
+</ul>
+<h4 id="情境层context-layer">情境层（Context Layer）</h4>
+<ul>
+<li>记录工作情境（项目背景、团队状态、客户需求）</li>
+<li>识别情境模式（紧急项目、长期规划、客户沟通）</li>
+<li>建立情境-行为关联</li>
+<li>文件：<code>memory/context/</code></li>
+</ul>
+<h4 id="行为层behavior-layer">行为层（Behavior Layer）</h4>
+<ul>
+<li>记录具体行动（决策、沟通、执行）</li>
+<li>分析行为有效性</li>
+<li>识别高效行为模式</li>
+<li>文件：<code>memory/behavior/</code></li>
+</ul>
+<h4 id="认知层cognition-layer">认知层（Cognition Layer）</h4>
+<ul>
+<li><strong>思维模式</strong>：系统思维、风险思维、创新思维等</li>
+<li><strong>决策框架</strong>：风险评估框架、优先级判断框架等</li>
+<li><strong>认知偏好</strong>：偏好结构化、偏好创新、偏好数据驱动等</li>
+<li><strong>推理轨迹</strong>：重要决策的推理过程</li>
+<li>文件：<code>memory/cognition/</code></li>
+</ul>
+<h4 id="核心层core-layer">核心层（Core Layer）</h4>
+<ul>
+<li><strong>价值观</strong>：专业精准、团队协作、持续改进等</li>
+<li><strong>性格特征</strong>：严谨、创新、领导力等</li>
+<li><strong>核心原则</strong>：提炼的核心工作原则</li>
+<li><strong>演变记录</strong>：核心层的演变过程</li>
+<li>文件：<code>memory/core/</code></li>
+</ul>
+<h3 id="洞察与总结">5. 洞察与总结</h3>
+<h4 id="周度洞察">周度洞察</h4>
+<ul>
+<li>每周自动总结工作亮点、问题、模式</li>
+<li>文件：<code>insights/weekly-insights.md</code></li>
+</ul>
+<h4 id="月度回顾">月度回顾</h4>
+<ul>
+<li>深度回顾、成长分析、模式发现</li>
+<li>文件：<code>insights/monthly-review.md</code></li>
+</ul>
+<h4 id="成长追踪">成长追踪</h4>
+<ul>
+<li>能力提升、知识积累、认知演进</li>
+<li>文件：<code>insights/growth-tracker.md</code></li>
+</ul>
+<h4 id="模式发现">模式发现</h4>
+<ul>
+<li>自动发现工作模式、决策模式、行为模式</li>
+<li>文件：<code>insights/pattern-discovery.md</code></li>
+</ul>
+<h3 id="ai能力扩展架构">6. AI能力扩展架构</h3>
+<h4 id="能力类型">能力类型</h4>
+<ul>
+<li><strong>Skill能力</strong>：单一功能的AI能力（如文档分析、代码生成等）</li>
+<li><strong>Agent能力</strong>：具有自主决策能力的AI代理</li>
+<li><strong>MCP能力</strong>：通过MCP协议集成的外部服务</li>
+<li><strong>本地工具</strong>：封装为Skill的本地工具</li>
+</ul>
+<h4 id="能力注册">能力注册</h4>
+<ul>
+<li>所有能力需要在<code>capabilities/registry.md</code>注册</li>
+<li>使用标准模板创建能力定义</li>
+<li>支持能力版本管理和状态管理</li>
+</ul>
+<h4 id="能力调用">能力调用</h4>
+<ul>
+<li>根据用户请求自动选择合适的能力</li>
+<li>支持能力组合和调用链</li>
+<li>记录所有能力使用情况</li>
+</ul>
+<h4 id="能力管理">能力管理</h4>
+<ul>
+<li>使用记录：<code>capabilities/usage/usage-history.md</code></li>
+<li>效果分析：<code>capabilities/usage/effectiveness.md</code></li>
+<li>能力知识库：<code>knowledge/capabilities/</code></li>
+<li>能力记忆：<code>memory/capabilities/</code></li>
+</ul>
+<hr />
+<h2 id="使用场景示例">使用场景示例</h2>
+<h3 id="场景1技术问题分析">场景1：技术问题分析</h3>
+<p><strong>用户</strong>：“如何设计ASIL
+D的监控机制用于智驾算法冗余？”</p>
+<p><strong>AI回应</strong>： “这是一个典型的冗余监控设计问题。基于ISO
+26262，ASIL D需要…</p>
+<p>让我从几个角度来分析： 1. 监控机制的选择（看门狗、自检、交叉验证等）
+2. 检测覆盖率要求 3. 与现有架构的集成 4. 客户特定要求（SEooC vs
+定制开发）</p>
+<p>基于你之前的项目经验，我注意到你在XX项目中采用了…
+这次是否需要考虑不同的约束？”</p>
+<p><strong>结果</strong>： - 创建技术分析记录 -
+更新知识库（安全机制相关） - 记录推理轨迹（认知层） -
+提取工作模式（如果形成新模式）</p>
+<h3 id="场景2团队任务分配">场景2：团队任务分配</h3>
+<p><strong>用户</strong>：“我需要为XX项目分配功能安全任务”</p>
+<p><strong>AI回应</strong>： “让我先了解一下项目规模和团队情况…</p>
+<p>基于你团队的历史模式，我建议： 1. FSC/TSC设计：分配给XX（基于其经验）
+2. FMEA分析：分配给XX（基于其技能） 3.
+安全需求协调：你亲自负责（跨部门协作）</p>
+<p>需要注意的风险： - 时间节点：XX阶段可能紧张 -
+资源冲突：XX同时参与多个项目 - 客户沟通：需要提前准备XX材料”</p>
+<p><strong>结果</strong>： - 创建任务分配记录 - 更新团队进度跟踪 -
+记录分配决策（行为层） - 更新任务分配模式</p>
+<h3 id="场景3客户对接">场景3：客户对接</h3>
+<p><strong>用户</strong>：“明天要和XX主机厂讨论安全需求，帮我准备一下”</p>
+<p><strong>AI回应</strong>： “基于之前的对接经验，我建议： 1.
+重点准备：XX（基于客户关注点） 2. 沟通策略：XX（基于历史沟通模式） 3.
+风险预案：XX（基于可能的问题）</p>
+<p>需要注意： - 客户可能关注XX（基于行业趋势） -
+上次对接中XX问题需要跟进 - 建议准备XX材料作为支撑”</p>
+<p><strong>结果</strong>： - 记录客户对接准备 - 更新客户对接模式 -
+记录沟通策略（行为层）</p>
+<h3 id="场景4生活方式探索">场景4：生活方式探索</h3>
+<p><strong>用户</strong>：“我想探索一下工作与生活的平衡”</p>
+<p><strong>AI回应</strong>：
+“基于你的核心层（价值观、性格特征），我注意到你重视专业精准和持续改进…</p>
+<p>让我从几个角度来探索： 1. 当前工作负荷分析（状态层） 2.
+时间分配优化建议 3. 工作方式调整建议 4. 生活方式探索方向”</p>
+<p><strong>结果</strong>： - 记录生活方式探索 - 更新工作画像 -
+记录核心层洞察</p>
+<hr />
+<h2 id="多层次记忆架构说明">多层次记忆架构说明</h2>
+<h3 id="记忆架构层次">记忆架构层次</h3>
+<pre class="mermaid"><code>flowchart TD
+    Work[工作记录] --&gt; Extract[记忆提取]
+    Extract --&gt; State[状态层]
+    Extract --&gt; Context[情境层]
+    Extract --&gt; Behavior[行为层]
+    Extract --&gt; Cognition[认知层]
+    Extract --&gt; Core[核心层]
+    
+    State --&gt; Pattern[模式识别]
+    Context --&gt; Pattern
+    Behavior --&gt; Pattern
+    Cognition --&gt; Pattern
+    Core --&gt; Pattern
+    
+    Pattern --&gt; Knowledge[知识库]
+    Pattern --&gt; Suggest[智能建议]
+    Suggest --&gt; Work
+    
+    style Work fill:#e1f5ff
+    style Extract fill:#fff4e1
+    style State fill:#e8f5e9
+    style Context fill:#e8f5e9
+    style Behavior fill:#e8f5e9
+    style Cognition fill:#e8f5e9
+    style Core fill:#e8f5e9
+    style Pattern fill:#f3e5f5
+    style Knowledge fill:#ffe0b2</code></pre>
+<h3 id="记忆提取机制">记忆提取机制</h3>
+<h4 id="从工作记录中提取">从工作记录中提取</h4>
+<ul>
+<li><strong>状态层</strong>：从项目、任务记录中提取当前状态</li>
+<li><strong>情境层</strong>：从项目背景、会议记录中提取情境</li>
+<li><strong>行为层</strong>：从决策、沟通记录中提取行为</li>
+<li><strong>认知层</strong>：从决策推理、问题分析中提取认知</li>
+<li><strong>核心层</strong>：从价值观表达、原则提炼中提取核心</li>
+</ul>
+<h4 id="模式识别">模式识别</h4>
+<ul>
+<li>从各层记忆中识别模式</li>
+<li>建立模式之间的关联</li>
+<li>形成工作模式库</li>
+</ul>
+<h4 id="智能建议">智能建议</h4>
+<ul>
+<li>基于记忆和模式提供个性化建议</li>
+<li>考虑状态、情境、行为、认知、核心层</li>
+<li>形成闭环优化</li>
+</ul>
+<hr />
+<h2 id="文件结构">文件结构</h2>
+<pre><code>ai-as-me-workplace/
+├── CURSOR.md                    # AI as me 核心指令文件（工作版）
+├── README.md                    # 系统说明文档（本文件）
+│
+├── work/                        # 工作协作目录
+│   ├── projects/                # 项目管理
+│   │   ├── PROJECT-TEMPLATE.md
+│   │   └── projects/            # 具体项目记录
+│   ├── tasks/                   # 任务管理
+│   │   ├── TASK-TEMPLATE.md
+│   │   └── tasks/               # 具体任务记录
+│   ├── documents/               # 文档协作
+│   │   ├── DOCUMENT-TEMPLATE.md
+│   │   └── documents/           # 具体文档记录
+│   ├── meetings/                # 会议记录
+│   │   ├── MEETING-TEMPLATE.md
+│   │   └── meetings/             # 具体会议记录
+│   └── decisions/               # 决策记录
+│       ├── DECISION-TEMPLATE.md
+│       └── decisions/           # 具体决策记录
+│
+├── team/                        # 团队管理目录
+│   ├── team-structure.md        # 团队结构
+│   ├── assignments/            # 任务分配
+│   │   ├── ASSIGNMENT-TEMPLATE.md
+│   │   └── assignments/         # 具体分配记录
+│   ├── progress/                # 进度跟踪
+│   │   ├── progress-tracker.md  # 进度总览
+│   │   └── weekly-reports/      # 周度报告
+│   ├── collaboration/           # 跨部门协作
+│   │   ├── COLLABORATION-TEMPLATE.md
+│   │   └── collaborations/      # 具体协作记录
+│   └── reviews/                 # 工作汇报
+│
+├── knowledge/                   # 知识库目录
+│   ├── knowledge-base.md        # 知识库索引
+│   ├── standards/               # 标准知识
+│   │   ├── ISO-26262/          # ISO 26262相关
+│   │   ├── ISO-21448/          # ISO 21448相关
+│   │   └── regulations/        # 法规（UNECE R155/R156等）
+│   ├── technical/               # 技术知识
+│   │   ├── architecture/       # 架构知识
+│   │   ├── safety-mechanisms/  # 安全机制
+│   │   └── best-practices/     # 最佳实践
+│   ├── patterns/                # 工作模式库
+│   │   ├── problem-solving/    # 问题解决模式
+│   │   ├── decision-making/   # 决策模式
+│   │   ├── communication/     # 沟通模式
+│   │   └── team-management/    # 团队管理模式
+│   └── lessons-learned/         # 经验教训
+│
+├── memory/                      # 记忆架构目录（核心）
+│   ├── state/                   # 状态层
+│   │   ├── current-state.md    # 当前状态
+│   │   └── state-history.md    # 状态历史
+│   ├── context/                 # 情境层
+│   │   ├── work-contexts/      # 工作情境
+│   │   ├── project-contexts/   # 项目情境
+│   │   └── context-patterns.md # 情境模式
+│   ├── behavior/                # 行为层
+│   │   ├── behavior-patterns.md # 行为模式
+│   │   ├── action-history.md   # 行动历史
+│   │   └── effectiveness.md    # 行为有效性分析
+│   ├── cognition/               # 认知层
+│   │   ├── thinking-models.md  # 思维模式
+│   │   ├── decision-frameworks.md # 决策框架
+│   │   ├── cognitive-preferences.md # 认知偏好
+│   │   └── reasoning-traces.md # 推理轨迹
+│   └── core/                    # 核心层
+│       ├── values.md            # 价值观
+│       ├── personality.md       # 性格特征
+│       ├── principles.md        # 核心原则
+│       └── evolution.md         # 核心层演变记录
+│
+├── insights/                    # 洞察和总结
+│   ├── weekly-insights.md       # 周度洞察
+│   ├── monthly-review.md        # 月度回顾
+│   ├── growth-tracker.md        # 成长追踪
+│   └── pattern-discovery.md     # 模式发现
+│
+├── profile/                     # 工作画像
+│   ├── work-profile.md          # 工作画像（角色、职责、能力）
+│   ├── expertise-map.md         # 专业能力地图
+│   └── collaboration-style.md   # 协作风格
+│
+└── capabilities/                # AI能力目录
+    ├── registry.md              # 能力注册表
+    ├── capabilities-index.md    # 能力索引
+    ├── skills/                  # Skill能力
+    │   ├── SKILL-TEMPLATE.md    # Skill模板
+    │   ├── skills/              # 具体Skill
+    │   └── local-tools/         # 本地工具封装
+    ├── agents/                  # Agent能力
+    │   ├── AGENT-TEMPLATE.md    # Agent模板
+    │   └── agents/              # 具体Agent
+    ├── mcps/                    # MCP能力
+    │   ├── MCP-TEMPLATE.md     # MCP模板
+    │   └── mcps/                # 具体MCP
+    ├── usage/                   # 使用记录
+    │   ├── usage-history.md     # 使用历史
+    │   └── effectiveness.md     # 使用效果分析
+    └── integration/             # 集成配置
+        ├── integration-config.md # 集成配置
+        └── api-routes.md        # API路由配置</code></pre>
+<hr />
+<h2 id="使用技巧">使用技巧</h2>
+<h3 id="如何开始工作">1. 如何开始工作</h3>
+<ul>
+<li><strong>直接提问</strong>：有任何工作问题都可以问</li>
+<li><strong>描述需求</strong>：说”我需要…“或”帮我…”</li>
+<li><strong>分享情境</strong>：分享工作情境，AI会基于记忆提供建议</li>
+</ul>
+<h3 id="如何形成闭环">2. 如何形成闭环</h3>
+<ul>
+<li><strong>问题提出</strong>：提出工作问题或需求</li>
+<li><strong>专业分析</strong>：AI基于知识库和记忆提供分析</li>
+<li><strong>执行记录</strong>：记录执行过程和结果</li>
+<li><strong>总结优化</strong>：总结工作，提取模式，优化工作方式</li>
+<li><strong>新问题产生</strong>：基于总结产生新的优化方向</li>
+</ul>
+<h3 id="如何查看记录">3. 如何查看记录</h3>
+<ul>
+<li><strong>工作记录</strong>：查看<code>work/</code>目录了解具体工作</li>
+<li><strong>团队管理</strong>：查看<code>team/</code>目录了解团队情况</li>
+<li><strong>知识库</strong>：查看<code>knowledge/</code>目录了解知识积累</li>
+<li><strong>记忆架构</strong>：查看<code>memory/</code>目录了解多层次记忆</li>
+<li><strong>洞察总结</strong>：查看<code>insights/</code>目录了解工作洞察</li>
+</ul>
+<h3 id="如何积累知识">4. 如何积累知识</h3>
+<ul>
+<li><strong>主动记录</strong>：重要工作主动记录</li>
+<li><strong>模式提取</strong>：从工作中提取工作模式</li>
+<li><strong>经验沉淀</strong>：将经验转化为知识库条目</li>
+<li><strong>持续优化</strong>：基于反馈优化知识库</li>
+</ul>
+<hr />
+<h2 id="常见问题">常见问题</h2>
+<h3 id="q1-这个系统和学习探索系统有什么区别">Q1:
+这个系统和学习探索系统有什么区别？</h3>
+<p><strong>A</strong>:
+学习探索系统用于教育（小朋友），工作协作平台用于工作（功能安全专家）。两者独立运行，互不干扰。</p>
+<h3 id="q2-我需要手动记录所有工作吗">Q2: 我需要手动记录所有工作吗？</h3>
+<p><strong>A</strong>:
+不需要！AI会自动记录重要工作。你只需要自然地和AI协作，提出工作需求。</p>
+<h3 id="q3-多层次记忆架构是如何工作的">Q3:
+多层次记忆架构是如何工作的？</h3>
+<p><strong>A</strong>: AI会从你的工作记录中自动提取各层记忆： -
+<strong>状态层</strong>：当前工作状态 -
+<strong>情境层</strong>：工作情境 - <strong>行为层</strong>：具体行动 -
+<strong>认知层</strong>：思维模式、决策框架 -
+<strong>核心层</strong>：价值观、性格特征</p>
+<h3 id="q4-如何查看我的工作模式">Q4: 如何查看我的工作模式？</h3>
+<p><strong>A</strong>:
+查看<code>insights/pattern-discovery.md</code>了解发现的工作模式，或查看<code>knowledge/patterns/</code>了解工作模式库。</p>
+<h3 id="q5-如何形成工作闭环">Q5: 如何形成工作闭环？</h3>
+<p><strong>A</strong>:
+从问题开始，专业分析，执行记录，总结优化，提取模式，继续优化。AI会在适当时机引导你形成闭环。</p>
+<h3 id="q6-如何使用ai能力skillagentmcp">Q6:
+如何使用AI能力（Skill、Agent、MCP）？</h3>
+<p><strong>A</strong>:
+直接描述需求即可，AI会自动从能力注册表中选择合适的能力。你也可以注册新能力或封装本地工具为Skill。</p>
+<h3 id="q7-如何注册新的ai能力">Q7: 如何注册新的AI能力？</h3>
+<p><strong>A</strong>:
+使用标准模板（SKILL-TEMPLATE.md、AGENT-TEMPLATE.md、MCP-TEMPLATE.md）创建能力定义，然后在<code>capabilities/registry.md</code>中注册。</p>
+<hr />
+<h2 id="系统特点">系统特点</h2>
+<h3 id="专业精准">1. 专业精准</h3>
+<ul>
+<li>基于ISO 26262、ISO 21448等标准提供准确建议</li>
+<li>熟悉自动驾驶域控制器架构和安全机制</li>
+<li>了解行业常见挑战和最佳实践</li>
+</ul>
+<h3 id="场景化应对">2. 场景化应对</h3>
+<ul>
+<li>针对Tier 1供应商角色提供实用建议</li>
+<li>协助输出技术文档或评审要点</li>
+<li>帮助分析具体技术问题</li>
+</ul>
+<h3 id="多层次记忆">3. 多层次记忆</h3>
+<ul>
+<li>在状态、情境、行为、认知、核心层建立记忆</li>
+<li>逐步形成完整的认知模型</li>
+<li>实现深度协作与融合</li>
+</ul>
+<h3 id="闭环优化">4. 闭环优化</h3>
+<ul>
+<li>从工作中学习，优化工作模式</li>
+<li>持续改进工作方式和决策框架</li>
+<li>形成正闭环迭代</li>
+</ul>
+<hr />
+<h2 id="技术说明">技术说明</h2>
+<h3 id="ai模型支持">AI模型支持</h3>
+<p>这个系统设计为<strong>模型无关</strong>的架构，可以与多种大语言模型配合使用：</p>
+<h4 id="在cursor中使用">在Cursor中使用</h4>
+<ul>
+<li><strong>Cursor
+AI助手</strong>：系统默认使用Cursor内置的AI助手（Auto）</li>
+<li><strong>模型选择</strong>：Cursor支持多种模型，包括但不限于：
+<ul>
+<li>Claude系列（Anthropic）</li>
+<li>GPT系列（OpenAI）</li>
+<li>其他兼容的大语言模型</li>
+</ul></li>
+</ul>
+<h4 id="系统设计理念">系统设计理念</h4>
+<ul>
+<li><strong>模型无关</strong>：系统的核心是交互逻辑和记录机制，不依赖特定模型</li>
+<li><strong>指令驱动</strong>：通过<code>CURSOR.md</code>中的指令定义AI行为，适配不同模型</li>
+<li><strong>可扩展性</strong>：理论上可以与任何支持指令遵循的大语言模型配合使用</li>
+</ul>
+<h3 id="系统架构">系统架构</h3>
+<ul>
+<li><strong>文件系统</strong>：基于Markdown文件的轻量级存储</li>
+<li><strong>知识图谱</strong>：使用Mermaid图表进行可视化</li>
+<li><strong>自动记录</strong>：通过AI的文件操作能力自动维护记录</li>
+</ul>
+<h3 id="技术特点">技术特点</h3>
+<ul>
+<li><strong>无需数据库</strong>：所有数据存储在Markdown文件中</li>
+<li><strong>版本控制友好</strong>：所有文件都是文本格式，易于Git管理</li>
+<li><strong>跨平台</strong>：可在任何支持Cursor的平台上使用</li>
+</ul>
+<hr />
+<h2 id="开始使用">开始使用</h2>
+<p>现在就打开Cursor，开始你的工作协作之旅吧！</p>
+<p><strong>记住</strong>： - 任何工作问题都可以问 -
+AI会基于你的背景和记忆提供专业支持 - 工作会自动记录，知识会持续沉淀 -
+多层次记忆会逐步建立，最终实现深度融合</p>
+<p>祝你工作顺利，持续成长！</p>
+</body>
+</html>
