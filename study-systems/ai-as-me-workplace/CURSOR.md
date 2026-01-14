@@ -324,6 +324,49 @@
 - **模板支持**：支持使用自定义Word模板（`templates/reference.docx`）
 - **使用场景**：将工作文档转换为正式Word或PDF格式
 
+#### 飞书API集成（MCP-001 / SKILL-001）
+- **功能**：飞书消息、Wiki、表格、项目等API集成
+- **参考文档**：`c:\Users\colin.lin\.cursor\cursor-projects\tools\feishu interaction\reference\`
+- **重要要求**：
+  - **所有飞书API调用必须参考reference文档**
+  - 调用前必须查阅对应的API文档（`api_docs/`目录）
+  - 必须遵循API文档中的URL结构、Header格式、请求格式
+  - 必须注意QPS限制和幂等性要求
+- **使用场景**：
+  - 与飞书消息通讯
+  - 管理飞书Wiki云文档
+  - 操作飞书在线表格和多维表格
+  - 管理飞书项目工作项和流程
+- **调用方式**：
+  ```python
+  from feishu_api_wrapper import FeishuAPI
+  api = FeishuAPI(plugin_id, plugin_secret, project_key, user_key)
+  ```
+
+#### 飞书多维表格今日更新总结（SKILL-002）
+- **功能**：获取飞书多维表格或项目表格视图的今日更新记录并生成总结
+- **参考文档**：
+  - `api_docs/工作项-16.md`：获取工作项操作记录
+  - `api_docs/工作项-1.md`：获取工作项列表
+  - `api_docs/视图与度量-2.md`：获取视图下工作项列表
+- **重要要求**：
+  - **所有飞书API调用必须参考reference文档**
+  - 必须使用reference文档中的API格式和参数
+- **使用场景**：
+  - 每日工作回顾
+  - 团队协作跟踪
+  - 数据变更监控
+- **调用方式**：
+  ```python
+  from feishu_bitable_daily_summary import get_bitable_daily_summary
+  result = get_bitable_daily_summary(
+      table_identifier="表格链接或ID",
+      plugin_id="your_plugin_id",
+      plugin_secret="your_plugin_secret",
+      user_key="your_user_key"
+  )
+  ```
+
 ## 交互风格
 
 ### 回答结构
@@ -448,6 +491,30 @@
 - 基于核心层（价值观、性格特征）提供建议
 - 协助探索和分析
 - 记录洞察，更新个人画像
+
+### 场景8：获取飞书多维表格今日更新总结
+
+**用户**："我想知道这个飞书多维表格今天的更新记录总结"
+
+**AI回应**：
+1. **必须首先查阅reference文档**：
+   - 查看`api_docs/工作项-16.md`（获取工作项操作记录）
+   - 查看`api_docs/工作项-1.md`（获取工作项列表）
+   - 查看`api_docs/视图与度量-2.md`（获取视图下工作项列表）
+2. 解析用户提供的表格链接或ID，提取project_key和view_id
+3. 获取plugin_token（参考`quick_start_example.py`）
+4. 调用SKILL-002工具获取今日更新记录
+5. 分析更新记录，生成总结报告
+
+**结果**：
+- 返回今日更新总结（新建、修改、删除数量）
+- 返回详细更新列表
+- 生成可读的总结文本
+
+**重要提醒**：
+- 所有飞书API调用必须参考reference文档
+- 必须使用reference文档中的API格式
+- 注意时间范围限制（最长7天）
 
 ## 记录规范
 

@@ -194,6 +194,37 @@ AI会基于你的背景、知识库和记忆提供专业支持。
 - 能力知识库：`knowledge/capabilities/`
 - 能力记忆：`memory/capabilities/`
 
+### 7. 飞书API集成
+
+#### 已集成能力
+- **MCP-001**：飞书API集成（MCP）
+- **SKILL-001**：飞书API封装工具（Skill）
+
+#### 支持功能
+- 飞书消息通讯
+- 飞书Wiki云文档操作
+- 飞书在线表格操作
+- 飞书多维表格操作
+- 飞书项目工作项管理
+- 飞书项目流程管理
+
+#### 重要要求
+- **所有飞书API调用必须参考reference文档**
+- Reference文档位置：`c:\Users\colin.lin\.cursor\cursor-projects\tools\feishu interaction\reference\`
+- 调用前必须查阅对应的API文档（`api_docs/`目录）
+- 必须遵循API文档中的格式要求
+
+#### 使用指南
+- 详细使用指南：`capabilities/skills/skills/FEISHU-API-GUIDE.md`
+- API文档索引：`reference/api_docs/_index.md`
+- 快速开始示例：`reference/quick_start_example.py`
+
+#### 已实现工具
+- **SKILL-002 飞书多维表格今日更新总结**：
+  - 功能：获取飞书多维表格或项目表格视图的今日更新记录并生成总结
+  - 实现文件：`capabilities/skills/skills/feishu_bitable_daily_summary.py`
+  - 使用方式：直接说"我想知道这个飞书多维表格今天的更新记录总结"，并提供表格链接或ID
+
 ---
 
 ## 使用场景示例
