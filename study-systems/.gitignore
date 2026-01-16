@@ -1,0 +1,59 @@
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 日志文件
+*.log
+*.log.gz
+*.log.*
+logs/
+**/logs/
+
+# 缓存目录和文件
+**/cache/
+**/*cache*/
+**/*_cache/
+**/*_cache.json
+**/*token_cache.json
+**/fault_diagnosis_cache/
+**/bitable_cache/
+**/spreadsheet_cache/
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE文件
+.vscode/
+.idea/
+*.code-workspace
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 压缩的日志文件
+*.gz
+*.zip
+*.tar
+
+# 特定项目的缓存文件
+ai-as-me-workplace/work/fault_diagnosis_cache/
+ai-as-me-workplace/work/fault_diagnosis_token_cache.json
+ai-as-me-workplace/capabilities/skills/skills/work/bitable_cache/
+ai-as-me-workplace/capabilities/skills/skills/__pycache__/
