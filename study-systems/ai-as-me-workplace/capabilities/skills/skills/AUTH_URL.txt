@@ -1,0 +1,17 @@
+授权URL（包含完整权限）：
+https://open.feishu.cn/open-apis/authen/v1/authorize?app_id=cli_a9c92ca516f99bd9&redirect_uri=https%3A%2F%2Fopen.feishu.cn%2Fapp%2Fcli_a9c92ca516f99bd9%2Fauth&response_type=code&scope=wiki%3Awiki%20wiki%3Anode%3Acreate%20wiki%3Anode%3Aread%20wiki%3Anode%3Aupdate%20wiki%3Anode%3Adelete%20docx%3Adocument
+
+使用说明：
+1. 确保已在飞书开放平台配置重定向URL：
+   https://open.feishu.cn/app/cli_a9c92ca516f99bd9/auth
+
+2. 复制上面的授权URL到浏览器访问
+
+3. 登录并授权，确保勾选所有wiki相关权限
+
+4. 授权后，浏览器会跳转到权限管理页面
+   请检查浏览器地址栏的完整URL，查找code参数
+
+5. 复制code值，然后运行：
+   python get_user_token_with_scope.py
+   或使用其他方式获取user_access_token

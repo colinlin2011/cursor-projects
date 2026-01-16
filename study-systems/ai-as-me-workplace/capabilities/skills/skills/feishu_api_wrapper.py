@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 """
 飞书API封装工具
 支持飞书项目API和飞书开放平台API
 
 重要：所有API调用必须参考reference文档
-Reference位置：c:\Users\colin.lin\.cursor\cursor-projects\tools\feishu interaction\reference\
+Reference位置：c:/Users/colin.lin/.cursor/cursor-projects/tools/feishu interaction/reference/
 """
 
 import requests
@@ -62,6 +63,8 @@ class FeishuAPI:
         self._app_access_token_expires_at = 0
         self._tenant_access_token = None
         self._tenant_access_token_expires_at = 0
+        self._user_access_token = None  # 用户身份凭证（可选）
+        self._user_access_token_expires_at = 0
     
     # ==================== 认证相关 ====================
     
@@ -527,7 +530,8 @@ class FeishuAPI:
         endpoint: str,
         data: Optional[Dict] = None,
         params: Optional[Dict] = None,
-        use_tenant_token: bool = True
+        use_tenant_token: bool = True,
+        use_user_token: bool = False
     ) -> Optional[Dict]:
         """
         飞书开放平台API请求封装
@@ -538,11 +542,15 @@ class FeishuAPI:
             data: 请求体数据
             params: URL参数
             use_tenant_token: 是否使用tenant_access_token（否则使用app_access_token）
+            use_user_token: 是否使用user_access_token（用户身份凭证）
             
         Returns:
             API响应结果或None
         """
-        if use_tenant_token:
+        if use_user_token and self._user_access_token:
+            # 优先使用用户身份凭证
+            token = self._user_access_token
+        elif use_tenant_token:
             token = self.get_tenant_access_token()
         else:
             token = self.get_app_access_token()
@@ -620,33 +628,50 @@ class FeishuAPI:
         }
         return self._open_platform_request('POST', endpoint, data)
     
+    def set_user_access_token(self, user_access_token: str, expires_in: int = 7200):
+        """
+        设置用户身份凭证（user_access_token）
+        
+        用于以用户身份调用API，权限由用户的权限决定
+        
+        Args:
+            user_access_token: 用户身份凭证
+            expires_in: 有效期（秒），默认7200秒（2小时）
+        """
+        self._user_access_token = user_access_token
+        self._user_access_token_expires_at = time.time() + expires_in
+    
     # Wiki云文档
     def create_wiki_doc(
         self,
         space_id: str,
         parent_node_token: Optional[str] = None,
-        title: str = "新文档"
+        title: str = "新文档",
+        use_user_token: bool = True
     ) -> Optional[Dict]:
         """
         创建Wiki云文档
         
-        参考文档：飞书开放平台 - 云文档API
+        参考文档：飞书开放平台 - Wiki v2 API
         
         Args:
             space_id: 知识库ID
             parent_node_token: 父节点token（可选）
             title: 文档标题
+            use_user_token: 是否使用用户身份凭证（推荐，因为应用无法直接添加到Wiki成员）
             
         Returns:
             文档信息或None
         """
-        endpoint = "open-apis/drive/v1/files"
+        # 使用Wiki v2 API创建文档节点
+        endpoint = f"open-apis/wiki/v2/spaces/{space_id}/nodes"
         data = {
-            "name": title,
-            "type": "doc",
-            "parent_token": parent_node_token or ""
+            "obj_type": "docx",  # 文档类型
+            "parent_node_token": parent_node_token or "",  # 父节点token，空字符串表示根节点
+            "node_type": "origin",  # 节点类型：origin表示原始节点
+            "title": title
         }
-        return self._open_platform_request('POST', endpoint, data)
+        return self._open_platform_request('POST', endpoint, data, use_user_token=use_user_token)
     
     def get_wiki_doc(
         self,
@@ -663,6 +688,290 @@ class FeishuAPI:
         """
         endpoint = f"open-apis/drive/v1/files/{file_token}"
         return self._open_platform_request('GET', endpoint)
+    
+    def get_wiki_node(
+        self,
+        space_id: str,
+        node_token: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        获取Wiki节点信息
+        
+        参考文档：飞书开放平台 - Wiki v2 API - 获取节点信息
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/get
+        
+        Args:
+            space_id: 知识库ID
+            node_token: 节点token
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            节点信息或None
+        """
+        endpoint = f"open-apis/wiki/v2/spaces/{space_id}/nodes/{node_token}"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def list_wiki_nodes(
+        self,
+        space_id: str,
+        parent_node_token: Optional[str] = None,
+        page_size: int = 50,
+        page_token: Optional[str] = None,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        列出Wiki节点（获取子节点列表）
+        
+        参考文档：飞书开放平台 - Wiki v2 API - 列出节点
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/list
+        
+        Args:
+            space_id: 知识库ID
+            parent_node_token: 父节点token，为空表示根节点
+            page_size: 分页大小
+            page_token: 分页token
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            节点列表或None
+        """
+        endpoint = f"open-apis/wiki/v2/spaces/{space_id}/nodes"
+        params = {
+            "page_size": page_size
+        }
+        if parent_node_token:
+            params["parent_node_token"] = parent_node_token
+        if page_token:
+            params["page_token"] = page_token
+        
+        return self._open_platform_request('GET', endpoint, params=params, use_user_token=use_user_token)
+    
+    # 文档内容操作（Docx API）
+    def get_document_info(
+        self,
+        document_id: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        获取文档基本信息
+        
+        参考文档：飞书开放平台 - Docx API - 获取文档基本信息
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get
+        
+        Args:
+            document_id: 文档ID（document_id）
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            文档信息或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def get_document_blocks(
+        self,
+        document_id: str,
+        page_size: int = 500,
+        page_token: Optional[str] = None,
+        document_revision_id: int = -1,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        获取文档所有块
+        
+        参考文档：飞书开放平台 - Docx API - 获取文档所有块
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list
+        
+        Args:
+            document_id: 文档ID
+            page_size: 分页大小，最大500
+            page_token: 分页token
+            document_revision_id: 文档版本ID，-1表示最新版本
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            块列表或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}/blocks"
+        params = {
+            "page_size": page_size,
+            "document_revision_id": document_revision_id
+        }
+        if page_token:
+            params["page_token"] = page_token
+        return self._open_platform_request('GET', endpoint, params=params, use_user_token=use_user_token)
+    
+    def get_block_content(
+        self,
+        document_id: str,
+        block_id: str,
+        document_revision_id: int = -1,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        获取块的内容
+        
+        参考文档：飞书开放平台 - Docx API - 获取块的内容
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get
+        
+        Args:
+            document_id: 文档ID
+            block_id: 块ID
+            document_revision_id: 文档版本ID，-1表示最新版本
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            块内容或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}/blocks/{block_id}"
+        params = {
+            "document_revision_id": document_revision_id
+        }
+        return self._open_platform_request('GET', endpoint, params=params, use_user_token=use_user_token)
+    
+    def create_block(
+        self,
+        document_id: str,
+        block_id: str,
+        children: List[Dict],
+        document_revision_id: int = -1,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        创建块（在指定块的子块列表中创建子块）
+        
+        参考文档：飞书开放平台 - Docx API - 创建块
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create
+        
+        Args:
+            document_id: 文档ID
+            block_id: 父块ID（如果是对文档根节点创建子块，可使用document_id）
+            children: 子块列表，每个元素是一个块的定义
+            document_revision_id: 文档版本ID，-1表示最新版本
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            创建的块信息或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children"
+        params = {
+            "document_revision_id": document_revision_id
+        }
+        data = {
+            "children": children
+        }
+        # 注意：create_block API默认将新块追加到末尾，如果需要指定位置，需要使用index参数
+        # 但当前实现是按顺序写入，所以应该能保持顺序
+        return self._open_platform_request('POST', endpoint, data, params=params, use_user_token=use_user_token)
+    
+    def create_descendant(
+        self,
+        document_id: str,
+        block_id: str,
+        children_id: List[str],
+        descendants: List[Dict],
+        index: int = 0,
+        document_revision_id: int = -1,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        创建嵌套块（用于创建表格等复杂结构）
+        
+        参考文档：飞书开放平台 - Docx API - 创建嵌套块
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-descendant/create
+        
+        Args:
+            document_id: 文档ID
+            block_id: 父块ID
+            children_id: 子块ID列表
+            descendants: 嵌套块结构列表
+            index: 插入位置
+            document_revision_id: 文档版本ID，-1表示最新版本
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            创建的块信息或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/descendant"
+        params = {
+            "document_revision_id": document_revision_id
+        }
+        data = {
+            "index": index,
+            "children_id": children_id,
+            "descendants": descendants
+        }
+        return self._open_platform_request('POST', endpoint, data, params=params, use_user_token=use_user_token)
+    
+    def update_block(
+        self,
+        document_id: str,
+        block_id: str,
+        requests: List[Dict],
+        document_revision_id: int = -1,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        更新块的内容
+        
+        参考文档：飞书开放平台 - Docx API - 更新块的内容
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch
+        
+        Args:
+            document_id: 文档ID
+            block_id: 块ID
+            requests: 更新请求列表，每个元素是一个更新操作
+            document_revision_id: 文档版本ID，-1表示最新版本
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            更新结果或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}/blocks/{block_id}"
+        params = {
+            "document_revision_id": document_revision_id
+        }
+        data = {
+            "requests": requests
+        }
+        return self._open_platform_request('PATCH', endpoint, data, params=params, use_user_token=use_user_token)
+    
+    def delete_blocks(
+        self,
+        document_id: str,
+        block_id: str,
+        start_index: int,
+        end_index: int,
+        document_revision_id: int = -1,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        删除块（删除指定块的子块）
+        
+        参考文档：飞书开放平台 - Docx API - 删除块
+        https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete
+        
+        Args:
+            document_id: 文档ID
+            block_id: 父块ID
+            start_index: 删除的起始索引（左闭右开）
+            end_index: 删除的末尾索引（左闭右开）
+            document_revision_id: 文档版本ID，-1表示最新版本
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            删除结果或None
+        """
+        endpoint = f"open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children/batch_delete"
+        params = {
+            "document_revision_id": document_revision_id
+        }
+        data = {
+            "start_index": start_index,
+            "end_index": end_index
+        }
+        return self._open_platform_request('DELETE', endpoint, data, params=params, use_user_token=use_user_token)
     
     # 多维表格
     def create_bitable(
@@ -738,6 +1047,224 @@ class FeishuAPI:
             "fields": fields
         }
         return self._open_platform_request('POST', endpoint, data)
+    
+    def get_bitable(self, app_token: str, use_user_token: bool = True) -> Optional[Dict]:
+        """
+        获取多维表格元数据
+        
+        Args:
+            app_token: 多维表格app_token
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            表格元数据或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def list_bitable_tables(
+        self,
+        app_token: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        列出多维表格的所有数据表
+        
+        Args:
+            app_token: 多维表格app_token
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            数据表列表或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def list_bitable_fields(
+        self,
+        app_token: str,
+        table_id: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        列出数据表的所有字段
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            字段列表或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/fields"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def list_bitable_views(
+        self,
+        app_token: str,
+        table_id: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        列出数据表的所有视图
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            视图列表或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/views"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def get_bitable_record(
+        self,
+        app_token: str,
+        table_id: str,
+        record_id: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        获取单条记录
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            record_id: 记录ID
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            记录信息或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}"
+        return self._open_platform_request('GET', endpoint, use_user_token=use_user_token)
+    
+    def update_bitable_record(
+        self,
+        app_token: str,
+        table_id: str,
+        record_id: str,
+        fields: Dict[str, Any],
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        更新记录
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            record_id: 记录ID
+            fields: 字段数据
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            更新后的记录或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}"
+        data = {
+            "fields": fields
+        }
+        return self._open_platform_request('PUT', endpoint, data, use_user_token=use_user_token)
+    
+    def delete_bitable_record(
+        self,
+        app_token: str,
+        table_id: str,
+        record_id: str,
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        删除记录
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            record_id: 记录ID
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            删除结果或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}"
+        return self._open_platform_request('DELETE', endpoint, use_user_token=use_user_token)
+    
+    def batch_create_bitable_records(
+        self,
+        app_token: str,
+        table_id: str,
+        records: List[Dict[str, Any]],
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        批量创建记录
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            records: 记录列表，每个记录包含fields字段
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            创建的记录列表或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_create"
+        data = {
+            "records": records
+        }
+        return self._open_platform_request('POST', endpoint, data, use_user_token=use_user_token)
+    
+    def batch_update_bitable_records(
+        self,
+        app_token: str,
+        table_id: str,
+        records: List[Dict[str, Any]],
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        批量更新记录
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            records: 记录列表，每个记录包含record_id和fields字段
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            更新后的记录列表或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_update"
+        data = {
+            "records": records
+        }
+        return self._open_platform_request('POST', endpoint, data, use_user_token=use_user_token)
+    
+    def batch_delete_bitable_records(
+        self,
+        app_token: str,
+        table_id: str,
+        record_ids: List[str],
+        use_user_token: bool = True
+    ) -> Optional[Dict]:
+        """
+        批量删除记录
+        
+        Args:
+            app_token: 多维表格app_token
+            table_id: 数据表ID
+            record_ids: 记录ID列表
+            use_user_token: 是否使用用户身份凭证
+            
+        Returns:
+            删除结果或None
+        """
+        endpoint = f"open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_delete"
+        data = {
+            "records": [{"record_id": rid} for rid in record_ids]
+        }
+        return self._open_platform_request('POST', endpoint, data, use_user_token=use_user_token)
     
     # 在线表格
     def create_spreadsheet(

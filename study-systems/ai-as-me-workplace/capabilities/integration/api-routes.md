@@ -1,7 +1,7 @@
 # API路由配置
 
-**最后更新**：YYYY-MM-DD  
-**版本**：v1.0
+**最后更新**：2026-01-16  
+**版本**：v2.0
 
 ---
 
@@ -72,20 +72,58 @@
 
 ## 调用链
 
-### 调用链1：[链名称]
-- **场景**：[场景描述]
-- **能力序列**：[能力ID序列]
+### 调用链1：故障信息查询
+- **场景**：通过单号查询故障信息
+- **能力序列**：fault_ticket_monitor → bitable_query → fault_query
 - **调用流程**：
-  1. [步骤1] - [能力ID] - [说明]
-  2. [步骤2] - [能力ID] - [说明]
-  3. [步骤3] - [能力ID] - [说明]
+  1. 获取问题单信息 - fault_ticket_monitor - 根据单号获取问题单基本信息
+  2. 从多维表格获取数据 - bitable_query - 获取缺陷表格数据
+  3. 查询故障信息 - fault_query - 整合信息并分析
+- **工作流模板**：fault_query_workflow
 
-### 调用链2：[链名称]
-- **场景**：[场景描述]
-- **能力序列**：[能力ID序列]
+### 调用链2：数据分析工作流
+- **场景**：从多维表格加载数据并进行分析
+- **能力序列**：bitable_cache → bitable_query → report_generator
 - **调用流程**：
-  1. [步骤1] - [能力ID] - [说明]
-  2. [步骤2] - [能力ID] - [说明]
+  1. 加载多维表格数据 - bitable_cache - 从缓存或API加载数据
+  2. 数据查询和分析 - bitable_query - 进行数据分析和查询
+  3. 生成分析报告 - report_generator - 生成分析报告
+- **工作流模板**：data_analysis_workflow
+
+### 调用链3：文档生成工作流
+- **场景**：基于数据生成文档并同步到飞书
+- **能力序列**：data_loader → doc_generator → feishu_doc
+- **调用流程**：
+  1. 加载数据 - data_loader - 从数据源加载数据
+  2. 生成文档内容 - doc_generator - 基于模板生成文档
+  3. 同步到飞书 - feishu_doc - 同步文档到飞书Wiki
+- **工作流模板**：document_generation_workflow
+
+---
+
+## 工作流路由
+
+### 工作流模板路由
+
+| 查询模式 | 工作流模板 | 参数 | 优先级 | 说明 |
+|---------|-----------|------|--------|------|
+| "查询.*故障.*信息" \| ".*单号.*查询" | fault_query_workflow | ticket_id | P0 | 通过单号查询故障信息 |
+| "分析.*数据" \| ".*数据分析" | data_analysis_workflow | table_name, cache_file | P0 | 数据分析工作流 |
+| "生成.*文档" \| ".*文档生成" | document_generation_workflow | data_source, doc_template | P0 | 文档生成工作流 |
+
+### 工作流执行
+
+工作流通过 `TemplateEngine` 执行：
+
+```python
+from capabilities.templates.template_engine import TemplateEngine
+
+engine = TemplateEngine()
+result = engine.execute_template(
+    "fault_query_workflow",
+    parameters={"ticket_id": "6683487902"}
+)
+```
 
 ---
 

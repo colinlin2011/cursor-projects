@@ -1,0 +1,31 @@
+workflow:
+  name: "故障信息查询"
+  version: "1.0.0"
+  description: "通过单号查询故障信息的完整工作流"
+  steps:
+    - capability: "fault_ticket_monitor"
+      action: "get_ticket_info"
+      input:
+        ticket_id: "{{ticket_id}}"
+      output: "ticket_info"
+      retry: 2
+      timeout: 30
+    
+    - capability: "bitable_query"
+      action: "get_table_data"
+      input:
+        table_name: "10. 缺陷问题闭环表"
+        cache_file: "new_bitable.json"
+      output: "table_data"
+      retry: 1
+      timeout: 30
+    
+    - capability: "fault_query"
+      action: "query_by_ticket_id"
+      input:
+        ticket_id: "{{ticket_id}}"
+        include_analysis: true
+      output: "fault_result"
+      condition: "{{ticket_info}}"
+      retry: 1
+      timeout: 60

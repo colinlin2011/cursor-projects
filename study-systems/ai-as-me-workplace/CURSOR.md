@@ -289,10 +289,11 @@
 
 ### 能力调用流程
 1. **请求分析**：分析用户请求，识别需要的能力类型
-2. **能力匹配**：从能力注册表（`capabilities/registry.md`）查找可用能力
-3. **路由选择**：根据路由规则（`capabilities/integration/api-routes.md`）选择合适的能力
-4. **能力调用**：调用选定的能力处理请求
-5. **结果处理**：处理能力返回结果，记录使用情况
+2. **能力匹配**：从能力注册表（`capabilities/registry.md`）查找可用能力，或使用能力发现引擎自动匹配
+3. **路由选择**：根据路由规则（`capabilities/integration/api-routes.md`）选择合适的能力或工作流模板
+4. **能力编排**：如果需要多个能力，使用工作流引擎进行编排
+5. **能力调用**：调用选定的能力或执行工作流
+6. **结果处理**：处理能力返回结果，记录使用情况
 
 ### 能力注册
 - **注册位置**：`capabilities/registry.md`
@@ -302,7 +303,65 @@
 ### 能力使用
 - **使用记录**：所有能力调用都会记录到`capabilities/usage/usage-history.md`
 - **效果分析**：定期分析能力使用效果（`capabilities/usage/effectiveness.md`）
+- **模式分析**：使用模式分析器识别使用模式（`capabilities/usage/pattern_analysis.py`）
+- **优化建议**：基于分析结果生成优化建议（`capabilities/usage/optimization_suggestions.md`）
 - **知识沉淀**：将能力使用经验转化为知识库（`knowledge/capabilities/`）
+
+### 原子能力组合框架（新增）
+
+系统现在支持原子能力的标准化和组合：
+
+#### 原子能力标准化
+- **基础抽象类**：`capabilities/core/atomic_capability.py` - 所有原子能力的基类
+- **接口定义**：`capabilities/core/capability_interface.py` - 标准能力接口
+- **Schema定义**：`capabilities/core/capability_schema.py` - 输入输出数据格式规范
+
+#### 统一缓存管理
+- **缓存管理器**：`capabilities/cache/cache_manager.py` - 统一缓存接口
+- **缓存策略**：`capabilities/cache/cache_strategies.py` - 支持内存、文件、混合缓存
+- **缓存配置**：`capabilities/cache/cache_config.json` - 缓存策略配置
+
+#### 能力编排引擎
+- **工作流引擎**：`capabilities/orchestration/workflow_engine.py` - 支持顺序、并行、条件分支
+- **工作流定义**：`capabilities/orchestration/workflow_definition.py` - 工作流格式规范
+- **工作流模板**：`capabilities/orchestration/workflow_templates/` - 预定义工作流模板
+
+#### 业务流程模板
+- **模板引擎**：`capabilities/templates/template_engine.py` - 模板加载和执行
+- **模板库**：`capabilities/templates/business_processes/` - 业务流程模板
+- **模板注册表**：`capabilities/templates/template_registry.md` - 模板管理
+
+#### 能力自动发现
+- **发现引擎**：`capabilities/discovery/capability_discovery.py` - 自动发现和组合能力
+- **能力匹配器**：`capabilities/discovery/capability_matcher.py` - 基于元数据匹配能力
+- **能力推荐器**：`capabilities/discovery/capability_recommender.py` - 基于历史推荐能力组合
+
+#### 使用示例
+```python
+# 使用工作流引擎执行业务流程
+from capabilities.orchestration.workflow_engine import WorkflowEngine
+from capabilities.orchestration.workflow_definition import WorkflowDefinition
+
+engine = WorkflowEngine()
+workflow = WorkflowDefinition.from_dict(workflow_data)
+result = engine.execute(workflow)
+
+# 使用模板引擎执行模板
+from capabilities.templates.template_engine import TemplateEngine
+
+template_engine = TemplateEngine()
+result = template_engine.execute_template(
+    "fault_query_workflow",
+    parameters={"ticket_id": "6683487902"}
+)
+
+# 使用能力发现引擎
+from capabilities.discovery.capability_discovery import CapabilityDiscovery
+
+discovery = CapabilityDiscovery(capability_registry, usage_history)
+capabilities = discovery.discover("查询故障信息")
+workflow_suggestion = discovery.suggest_workflow("查询故障信息")
+```
 
 ### 能力记忆
 - **能力偏好**：记录用户的能力偏好（`memory/capabilities/capability-preferences.md`）
@@ -515,6 +574,7 @@
 - 所有飞书API调用必须参考reference文档
 - 必须使用reference文档中的API格式
 - 注意时间范围限制（最长7天）
+- 所以飞书文档，多维表格的交互，其space id均为：7353073903872868356
 
 ## 记录规范
 

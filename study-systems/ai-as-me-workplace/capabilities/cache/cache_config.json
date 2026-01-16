@@ -1,0 +1,23 @@
+{
+  "cache_strategies": {
+    "bitable": {
+      "type": "file",
+      "ttl": 3600,
+      "location": "work/bitable_cache/"
+    },
+    "spreadsheet": {
+      "type": "file",
+      "ttl": 3600,
+      "location": "work/spreadsheet_cache/"
+    },
+    "fault_guide": {
+      "type": "file",
+      "ttl": 86400,
+      "location": "work/fault_diagnosis_cache/guides/"
+    },
+    "default": {
+      "type": "memory",
+      "ttl": 3600
+    }
+  }
+}

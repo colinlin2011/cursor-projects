@@ -1,0 +1,29 @@
+{
+  "guide_docs": [
+    {
+      "name": "故障定位指引文档1",
+      "node_token": "UBS2wO9aai7jB7kaw4QcQGNbngc",
+      "url": "https://zyt.feishu.cn/wiki/UBS2wO9aai7jB7kaw4QcQGNbngc"
+    },
+    {
+      "name": "故障定位指引文档2",
+      "node_token": "H7a5w5tqBidVHMkCqxHc6AmEn5c",
+      "url": "https://zyt.feishu.cn/wiki/H7a5w5tqBidVHMkCqxHc6AmEn5c"
+    },
+    {
+      "name": "故障定位指引文档3",
+      "node_token": "NUgTwgJWpikCV7k8OFqcH8kYn7e",
+      "url": "https://zyt.feishu.cn/wiki/NUgTwgJWpikCV7k8OFqcH8kYn7e"
+    },
+    {
+        "name": "故障定位指引文档4",
+        "node_token": "Q9m2wIOxfiyNKKkNojCcljxInBf",
+        "url": "https://zyt.feishu.cn/wiki/Q9m2wIOxfiyNKKkNojCcljxInBf"
+    },
+    {
+        "name": "故障定位指引文档5",
+        "node_token": "R3NowdLHoiVOtMks6lzcW7sYnCf",
+        "url": "https://zyt.feishu.cn/wiki/R3NowdLHoiVOtMks6lzcW7sYnCf"
+    }
+  ]
+}

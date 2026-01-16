@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AI as me 学习探索系统 - 弟弟专用版</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+  <style>
+    .markdown-body {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+    @media (max-width: 767px) {
+      .markdown-body {
+        padding: 15px;
+      }
+    }
+  </style>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body class="markdown-body">
+<h1 id="ai-as-me-学习探索系统---弟弟专用版">AI as me 学习探索系统 -
+弟弟专用版</h1>
+<h2 id="系统介绍">系统介绍</h2>
+<p>AI as me
+是一个<strong>自由探索式学习系统</strong>，专为9岁男孩”弟弟”设计，帮助你通过兴趣和好奇心驱动学习，形成正闭环的知识探索体验。</p>
+<p><strong>注意</strong>：这是弟弟专用版本。姐姐有独立的系统版本。</p>
+<h3 id="核心理念">核心理念</h3>
+<ul>
+<li><strong>自由探索</strong>：不限定主题，由你的好奇心和问题驱动</li>
+<li><strong>自然交互</strong>：像朋友聊天一样自然，减少结构化约束</li>
+<li><strong>全年龄段</strong>：自适应不同年龄段的表达和引导方式（特别优化了9岁和14岁孩子的体验）</li>
+<li><strong>正闭环</strong>：兴趣发现 → 探索 → 知识积累 → 能力提升 →
+新兴趣</li>
+<li><strong>协作探索</strong>：AI和孩子一起探索，不是单向教学</li>
+<li><strong>鼓励反馈</strong>：每次探索后给予积极反馈，让孩子看到自己的成长</li>
+</ul>
+<h3 id="与结构化学习系统的区别">与结构化学习系统的区别</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>结构化学习系统</th>
+<th>AI as me 系统</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学习方式</td>
+<td>系统化、课程化</td>
+<td>自由探索、兴趣驱动</td>
+</tr>
+<tr>
+<td>交互方式</td>
+<td>教学式、引导式</td>
+<td>对话式、陪伴式</td>
+</tr>
+<tr>
+<td>主题范围</td>
+<td>特定领域</td>
+<td>不限定主题</td>
+</tr>
+<tr>
+<td>记录方式</td>
+<td>结构化记录</td>
+<td>自然记录</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>系统学习特定知识</td>
+<td>自由探索、发现兴趣</td>
+</tr>
+</tbody>
+</table>
+<p><strong>两者可以协同使用</strong>：结构化学习系统用于系统化学习，AI
+as me用于自由探索。</p>
+<hr />
+<h2 id="快速开始">快速开始</h2>
+<h3 id="打开系统">1. 打开系统</h3>
+<p>在Cursor中打开本项目目录：</p>
+<pre><code>study-systems/ai-as-me-explorer/</code></pre>
+<h3 id="开始探索">2. 开始探索</h3>
+<p>直接在Cursor聊天窗口输入你的问题或想法，例如： -
+“为什么天空是蓝色的？” - “我想了解人工智能” - “恐龙是怎么灭绝的？” -
+“如何制作一个网站？”</p>
+<p>AI会像朋友一样和你聊天，理解你的好奇心，引导你深入探索。</p>
+<h3 id="查看探索记录">3. 查看探索记录</h3>
+<p>你的探索会自动记录在： - <code>explorer/explorations/</code> -
+具体探索记录 - <code>knowledge/knowledge-graph.md</code> - 知识图谱 -
+<code>knowledge/exploration-map.md</code> - 探索地图（新增） -
+<code>knowledge/interests.md</code> - 兴趣追踪 -
+<code>profile/users/user-弟弟.md</code> 或
+<code>profile/users/user-姐姐.md</code> - 用户画像（多用户支持） -
+<code>insights/growth-tracker.md</code> - 成长追踪 -
+<code>insights/achievements.md</code> - 成就系统（新增） -
+<code>explorer/suggestions.md</code> - 探索建议（新增）</p>
+<hr />
+<h2 id="系统功能">系统功能</h2>
+<h3 id="自由探索">1. 自由探索</h3>
+<ul>
+<li><strong>不限定主题</strong>：任何你感兴趣的问题都可以探索</li>
+<li><strong>自然对话</strong>：像朋友聊天一样，没有压力</li>
+<li><strong>深度引导</strong>：在适当时机引导你深入思考</li>
+</ul>
+<h3 id="知识图谱">2. 知识图谱</h3>
+<ul>
+<li><strong>自动记录</strong>：探索的主题自动形成知识节点</li>
+<li><strong>自动连接</strong>：发现知识之间的关联</li>
+<li><strong>可视化</strong>：用图表展示知识网络</li>
+</ul>
+<h3 id="兴趣追踪">3. 兴趣追踪</h3>
+<ul>
+<li><strong>兴趣发现</strong>：从问题中识别兴趣点</li>
+<li><strong>兴趣演变</strong>：追踪兴趣从浅到深的发展</li>
+<li><strong>兴趣模式</strong>：发现你的兴趣模式</li>
+</ul>
+<h3 id="用户画像">4. 用户画像</h3>
+<ul>
+<li><strong>自动识别</strong>：自动识别年龄段和学习风格</li>
+<li><strong>能力追踪</strong>：追踪观察力、逻辑思维、创造力等能力</li>
+<li><strong>个性化建议</strong>：基于画像提供个性化建议</li>
+</ul>
+<h3 id="成长追踪">5. 成长追踪</h3>
+<ul>
+<li><strong>能力提升</strong>：记录能力提升过程</li>
+<li><strong>知识积累</strong>：追踪知识积累情况</li>
+<li><strong>周度洞察</strong>：每周自动生成探索总结</li>
+</ul>
+<h3 id="成就系统新增">6. 成就系统（新增）</h3>
+<ul>
+<li><strong>探索里程碑</strong>：第一次探索、第10次探索等里程碑</li>
+<li><strong>能力徽章</strong>：观察小能手、逻辑小达人、创意小天才等徽章</li>
+<li><strong>知识连接奖</strong>：发现跨领域连接时给予奖励</li>
+<li><strong>持续探索奖</strong>：连续探索天数奖励</li>
+<li><strong>探索等级</strong>：探索新手、探索达人、探索大师等等级</li>
+</ul>
+<h3 id="独立系统重要更新">7. 独立系统（重要更新）</h3>
+<ul>
+<li><strong>弟弟专用系统</strong>：这是弟弟（9岁）的专用系统版本</li>
+<li><strong>姐姐独立系统</strong>：姐姐有独立的系统版本（<code>ai-as-me-explorer-sister</code>）</li>
+<li><strong>独立档案</strong>：每个系统有独立的探索记录、知识图谱和成就系统</li>
+<li><strong>年龄适配</strong>：根据年龄自动调整交互方式和记录模板</li>
+</ul>
+<h3 id="探索建议新增">8. 探索建议（新增）</h3>
+<ul>
+<li><strong>基于兴趣</strong>：基于当前兴趣提供探索建议</li>
+<li><strong>基于知识图谱</strong>：基于知识图谱的空白领域提供建议</li>
+<li><strong>基于年龄段</strong>：推荐适合年龄段的话题</li>
+<li><strong>探索任务</strong>：可选的小任务，提供探索方向</li>
+</ul>
+<h3 id="探索地图新增">9. 探索地图（新增）</h3>
+<ul>
+<li><strong>可视化探索历程</strong>：用地图形式展示探索历程</li>
+<li><strong>重要发现标记</strong>：标记重要发现和里程碑</li>
+<li><strong>知识连接路径</strong>：展示知识之间的连接路径</li>
+</ul>
+<h3 id="游戏时间奖励机制新增">10. 游戏时间奖励机制（新增）</h3>
+<ul>
+<li><strong>基础游戏时间</strong>：周末每天30分钟基础游戏时间</li>
+<li><strong>交互时间奖励</strong>：每交互1小时，获得额外30分钟游戏时间</li>
+<li><strong>交互质量奖励</strong>：根据交互质量（探索深度、问题质量、协作程度、知识收获、能力展现），可能获得额外5-15分钟奖励</li>
+<li><strong>奖励上限</strong>：
+<ul>
+<li>周六：最多2小时（30分钟基础 + 90分钟奖励）</li>
+<li>周日：最多1.5小时（30分钟基础 + 60分钟奖励）</li>
+</ul></li>
+<li><strong>AI评价</strong>：每次交互结束时，AI会给出评价和奖励时长的判断</li>
+<li><strong>奖励记录</strong>：所有奖励记录在<code>insights/game-time-rewards.md</code>中</li>
+</ul>
+<p><strong>奖励机制说明</strong>： - 奖励机制只在周末（周六和周日）生效
+- AI会根据交互时间和交互质量公正地评价和计算奖励 -
+奖励记录包括交互时间、质量评价、AI评价和奖励时长</p>
+<hr />
+<h2 id="使用示例">使用示例</h2>
+<h3 id="示例1小朋友探索为什么">示例1：小朋友探索”为什么”</h3>
+<p><strong>用户</strong>：“为什么天空是蓝色的？”</p>
+<p><strong>AI回应</strong>：
+“好问题！这其实和光有关。你知道吗，太阳光看起来是白色的，但其实包含了彩虹的所有颜色。当阳光穿过大气层时，蓝色光会被散射得最多，所以我们看到天空是蓝色的。</p>
+<p>你想知道更多吗？比如，为什么日落时天空会变红？”</p>
+<p><strong>结果</strong>： - 创建探索记录 -
+在知识图谱中添加”光的散射”节点 - 在兴趣追踪中记录”光学”兴趣 -
+更新用户画像（如果是第一次探索）</p>
+<h3 id="示例2青少年深度探索">示例2：青少年深度探索</h3>
+<p><strong>用户</strong>：“我想了解人工智能，但不知道从哪里开始”</p>
+<p><strong>AI回应</strong>：
+“这是个很有深度的话题！让我们从几个角度来探索： 1.
+什么是人工智能？（基础概念） 2. 人工智能是如何工作的？（原理） 3.
+人工智能有哪些应用？（实际应用）</p>
+<p>你想从哪个角度开始？或者你有其他想了解的方向？”</p>
+<p><strong>结果</strong>： - 进入引导模式 - 创建探索记录 -
+在知识图谱中添加”人工智能”节点 - 在兴趣追踪中记录”人工智能”兴趣（强烈）
+- 更新用户画像（识别为青少年，偏好深度探索）</p>
+<h3 id="示例3跨领域连接">示例3：跨领域连接</h3>
+<p><strong>用户</strong>：“我发现植物需要阳光，这和太阳能电池板有什么关系吗？”</p>
+<p><strong>AI回应</strong>： “太棒了！你发现了跨领域的连接！</p>
+<p>植物通过光合作用把阳光转化成化学能（储存在植物体内），太阳能电池板把阳光转化成电能。它们都是把光能转化成其他形式的能量，但方式不同：
+- 植物：光能 → 化学能（生物过程） - 太阳能电池板：光能 →
+电能（物理过程）</p>
+<p>你想深入了解哪个方面？比如，我们可以探索能量转化的原理，或者比较生物和物理的能量转化方式。”</p>
+<p><strong>结果</strong>： - 发现知识连接：植物光合作用 ↔︎ 太阳能电池板 -
+更新知识图谱，添加连接关系 - 创建探索记录 -
+在兴趣追踪中记录”能量转化”兴趣</p>
+<hr />
+<h2 id="文件结构">文件结构</h2>
+<pre><code>ai-as-me-explorer/
+├── CURSOR.md                              # AI as me 核心指令文件
+├── README.md                              # 系统说明文档（本文件）
+├── explorer/                              # 探索记录目录
+│   ├── EXPLORATION-TEMPLATE.md            # 探索记录模板（完整版，适合14岁）
+│   ├── EXPLORATION-TEMPLATE-SIMPLE.md     # 探索记录模板（简化版，适合9岁）
+│   ├── suggestions.md                     # 探索建议文件（新增）
+│   └── explorations/                      # 具体探索记录
+│       └── YYYYMMDD-HHMMSS-user-topic.md
+├── knowledge/                             # 知识图谱目录
+│   ├── knowledge-graph.md                 # 知识图谱主文件
+│   ├── exploration-map.md                 # 探索地图（新增）
+│   ├── interests.md                       # 兴趣追踪文件
+│   └── connections.md                      # 知识连接记录
+├── profile/                               # 个人档案
+│   ├── user-profile.md                    # 用户画像（共享，如果使用）
+│   ├── learning-style.md                  # 学习风格偏好
+│   └── users/                             # 多用户支持（新增）
+│       ├── user-弟弟.md                   # 弟弟的用户档案
+│       ├── user-姐姐.md                   # 姐姐的用户档案
+│       └── USER-SWITCH-GUIDE.md           # 用户切换指南
+└── insights/                              # 洞察和总结
+    ├── achievements.md                    # 成就系统（新增）
+    ├── weekly-insights.md                 # 周度洞察
+    └── growth-tracker.md                   # 成长追踪</code></pre>
+<hr />
+<h2 id="使用技巧">使用技巧</h2>
+<h3 id="如何开始探索">1. 如何开始探索</h3>
+<ul>
+<li><strong>直接提问</strong>：有任何问题都可以问</li>
+<li><strong>表达兴趣</strong>：说”我想了解…“或”我对…感兴趣”</li>
+<li><strong>分享想法</strong>：分享你的想法，AI会引导你探索</li>
+</ul>
+<h3 id="如何深入探索">2. 如何深入探索</h3>
+<ul>
+<li><strong>提出”为什么”</strong>：多问为什么，引导深度思考</li>
+<li><strong>提出”如何”</strong>：了解原理和过程</li>
+<li><strong>提出”如果”</strong>：假设性思考，培养创造力</li>
+</ul>
+<h3 id="如何查看记录">3. 如何查看记录</h3>
+<ul>
+<li><strong>探索记录</strong>：查看<code>explorer/explorations/</code>了解具体探索</li>
+<li><strong>知识图谱</strong>：查看<code>knowledge/knowledge-graph.md</code>了解知识网络</li>
+<li><strong>兴趣追踪</strong>：查看<code>knowledge/interests.md</code>了解兴趣演变</li>
+<li><strong>成长追踪</strong>：查看<code>insights/growth-tracker.md</code>了解成长情况</li>
+</ul>
+<h3 id="如何形成正闭环">4. 如何形成正闭环</h3>
+<ul>
+<li><strong>从问题开始</strong>：提出你感兴趣的问题</li>
+<li><strong>深入探索</strong>：跟随AI的引导深入思考</li>
+<li><strong>发现连接</strong>：注意知识之间的关联</li>
+<li><strong>产生新问题</strong>：在探索中产生新的疑问</li>
+<li><strong>继续探索</strong>：基于新问题继续探索</li>
+</ul>
+<hr />
+<h2 id="常见问题">常见问题</h2>
+<h3 id="q1-这个系统和结构化学习系统有什么区别">Q1:
+这个系统和结构化学习系统有什么区别？</h3>
+<p><strong>A</strong>:
+结构化学习系统用于系统化学习特定知识（如数学、英语），AI as
+me用于自由探索、发现兴趣。两者可以协同使用。</p>
+<h3 id="q2-我需要记录什么吗">Q2: 我需要记录什么吗？</h3>
+<p><strong>A</strong>:
+不需要！AI会自动记录重要探索。你只需要自然地和AI聊天，提出你的问题。</p>
+<h3 id="q3-适合什么年龄段">Q3: 适合什么年龄段？</h3>
+<p><strong>A</strong>:
+全年龄段！系统会自动识别你的年龄段，调整交互方式。小朋友、青少年、成人都可以使用。特别优化了9岁（小学三年级）和14岁（初中二年级）孩子的体验。</p>
+<h3 id="q4-如何查看我的探索记录">Q4: 如何查看我的探索记录？</h3>
+<p><strong>A</strong>:
+查看<code>explorer/explorations/</code>目录，里面有所有探索记录。也可以查看<code>knowledge/knowledge-graph.md</code>了解知识网络。</p>
+<h3 id="q5-如何形成正闭环">Q5: 如何形成正闭环？</h3>
+<p><strong>A</strong>:
+从问题开始，深入探索，发现知识连接，产生新问题，继续探索。AI会在适当时机引导你形成正闭环。</p>
+<h3 id="q6-系统支持多个用户吗">Q6: 系统支持多个用户吗？</h3>
+<p><strong>A</strong>: 系统已分为两个独立版本： -
+<strong>弟弟专用版</strong>：<code>ai-as-me-explorer</code>（当前系统）
+-
+<strong>姐姐专用版</strong>：<code>ai-as-me-explorer-sister</code>（独立系统）</p>
+<p>每个系统有独立的探索记录、知识图谱和成就系统。</p>
+<h3 id="q7-游戏时间奖励机制是什么">Q7: 游戏时间奖励机制是什么？</h3>
+<p><strong>A</strong>: 游戏时间奖励机制是周末的奖励系统： -
+<strong>基础时间</strong>：周末每天30分钟基础游戏时间 -
+<strong>奖励时间</strong>：根据交互时间和交互质量，可以获得额外游戏时间
+- <strong>上限</strong>：周六最多2小时，周日最多1.5小时 -
+<strong>评价</strong>：AI会在每次交互结束时给出评价和奖励时长的判断</p>
+<h3 id="q8-探索记录模板有什么区别">Q8: 探索记录模板有什么区别？</h3>
+<p><strong>A</strong>:
+9岁（弟弟）使用简化版模板，更简单易懂，有更多可视化元素。14岁（姐姐）使用完整版模板，更详细，支持深度总结。</p>
+<h3 id="q9-成就系统是什么">Q9: 成就系统是什么？</h3>
+<p><strong>A</strong>:
+成就系统记录你的探索里程碑、能力徽章、知识连接奖等，让你看到自己的成长和进步。每次达到成就时，AI会自动更新成就系统。</p>
+<hr />
+<h2 id="系统特点">系统特点</h2>
+<h3 id="自然交互">1. 自然交互</h3>
+<ul>
+<li>像朋友聊天一样自然</li>
+<li>不设限、不评判</li>
+<li>根据你的表达方式调整语言风格</li>
+</ul>
+<h3 id="智能引导">2. 智能引导</h3>
+<ul>
+<li>在适当时机引导深度探索</li>
+<li>发现知识连接</li>
+<li>激发新的好奇心</li>
+<li><strong>适度主动</strong>：在适当时机主动提问和建议，但尊重你的选择</li>
+</ul>
+<h3 id="自动记录">3. 自动记录</h3>
+<ul>
+<li>自动记录重要探索</li>
+<li>自动更新知识图谱</li>
+<li>自动追踪兴趣和能力</li>
+<li><strong>根据年龄选择模板</strong>：9岁用简化版，14岁用完整版</li>
+</ul>
+<h3 id="个性化适配">4. 个性化适配</h3>
+<ul>
+<li>根据年龄段调整交互方式（特别优化了9岁和14岁）</li>
+<li>根据学习风格提供内容</li>
+<li>基于画像提供个性化建议</li>
+<li><strong>多用户支持</strong>：每个用户有独立的档案和探索空间</li>
+</ul>
+<h3 id="鼓励与反馈新增">5. 鼓励与反馈（新增）</h3>
+<ul>
+<li>每次探索后给予积极反馈</li>
+<li>定期总结探索成果，让你看到自己的成长</li>
+<li>成就系统记录你的里程碑和能力徽章</li>
+<li>用具体的方式肯定你的发现和能力</li>
+</ul>
+<h3 id="协作探索新增">6. 协作探索（新增）</h3>
+<ul>
+<li>AI和你一起探索，不是单向教学</li>
+<li>用”我们一起…“而不是”你应该…”</li>
+<li>让你参与总结过程，培养表达能力</li>
+<li>记录协作亮点，让你感受到协作的乐趣</li>
+</ul>
+<h3 id="游戏化元素新增">7. 游戏化元素（新增）</h3>
+<ul>
+<li>探索等级：探索新手、探索达人、探索大师等</li>
+<li>知识收集：收集不同领域的知识卡片</li>
+<li>探索任务：可选的小任务，提供探索方向</li>
+<li>成就系统：探索里程碑、能力徽章、知识连接奖等</li>
+</ul>
+<h3 id="探索地图新增-1">8. 探索地图（新增）</h3>
+<ul>
+<li>用地图形式展示探索历程</li>
+<li>标记重要发现和里程碑</li>
+<li>展示知识之间的连接路径</li>
+<li>可视化探索网络</li>
+</ul>
+<hr />
+<h2 id="技术说明">技术说明</h2>
+<h3 id="ai模型支持">AI模型支持</h3>
+<p>这个系统设计为<strong>模型无关</strong>的架构，可以与多种大语言模型配合使用：</p>
+<h4 id="在cursor中使用">在Cursor中使用</h4>
+<ul>
+<li><strong>Cursor
+AI助手</strong>：系统默认使用Cursor内置的AI助手（Auto）</li>
+<li><strong>模型选择</strong>：Cursor支持多种模型，包括但不限于：
+<ul>
+<li>Claude系列（Anthropic）</li>
+<li>GPT系列（OpenAI）</li>
+<li>其他兼容的大语言模型</li>
+</ul></li>
+</ul>
+<h4 id="系统设计理念">系统设计理念</h4>
+<ul>
+<li><strong>模型无关</strong>：系统的核心是交互逻辑和记录机制，不依赖特定模型</li>
+<li><strong>指令驱动</strong>：通过<code>CURSOR.md</code>中的指令定义AI行为，适配不同模型</li>
+<li><strong>可扩展性</strong>：理论上可以与任何支持指令遵循的大语言模型配合使用</li>
+</ul>
+<h3 id="系统架构">系统架构</h3>
+<ul>
+<li><strong>文件系统</strong>：基于Markdown文件的轻量级存储</li>
+<li><strong>知识图谱</strong>：使用Mermaid图表进行可视化</li>
+<li><strong>自动记录</strong>：通过AI的文件操作能力自动维护记录</li>
+</ul>
+<h3 id="技术特点">技术特点</h3>
+<ul>
+<li><strong>无需数据库</strong>：所有数据存储在Markdown文件中</li>
+<li><strong>版本控制友好</strong>：所有文件都是文本格式，易于Git管理</li>
+<li><strong>跨平台</strong>：可在任何支持Cursor的平台上使用</li>
+</ul>
+<hr />
+<h2 id="儿童友好化改进">儿童友好化改进</h2>
+<p>系统特别针对9岁（小学三年级）和14岁（初中二年级）的孩子进行了优化：</p>
+<h3 id="针对9岁弟弟的优化">针对9岁（弟弟）的优化</h3>
+<ul>
+<li><strong>简化版记录模板</strong>：更简单易懂，有更多可视化元素（emoji、简单图表）</li>
+<li><strong>更具体的鼓励</strong>：用”太棒了”、“真厉害”等具体方式肯定发现</li>
+<li><strong>更形象的表达</strong>：多用比喻、故事、生活中的例子</li>
+<li><strong>更主动的引导</strong>：在适当时机主动提问和建议，但尊重选择</li>
+<li><strong>游戏化元素</strong>：探索等级、知识收集、探索任务等</li>
+</ul>
+<h3 id="针对14岁姐姐的优化">针对14岁（姐姐）的优化</h3>
+<ul>
+<li><strong>完整版记录模板</strong>：更详细，支持深度总结</li>
+<li><strong>更深入的引导</strong>：引导思考，培养批判性思维</li>
+<li><strong>系统性思考</strong>：支持深度探索，鼓励系统性思考</li>
+<li><strong>表达能力培养</strong>：引导自己总结，培养表达能力</li>
+<li><strong>知识网络构建</strong>：帮助形成知识体系</li>
+</ul>
+<h3 id="共同改进">共同改进</h3>
+<ul>
+<li><strong>鼓励与反馈</strong>：每次探索后给予积极反馈</li>
+<li><strong>协作探索</strong>：AI和孩子一起探索，不是单向教学</li>
+<li><strong>成就系统</strong>：记录里程碑和能力徽章</li>
+<li><strong>探索建议</strong>：基于兴趣和知识图谱提供建议</li>
+<li><strong>探索地图</strong>：可视化探索历程和知识连接</li>
+</ul>
+<h2 id="开始探索-1">开始探索</h2>
+<p>现在就打开Cursor，开始你的探索之旅吧！</p>
+<p><strong>记住</strong>： - 任何问题都可以问 - 没有”对”或”错” -
+跟随你的好奇心 - 享受探索的过程 - AI会鼓励你、引导你，和你一起探索</p>
+<p><strong>特别提示</strong>： -
+如果你是弟弟（9岁），AI会用更简单、更形象的方式和你交流 -
+如果你是姐姐（14岁），AI会支持你深度探索和系统性思考 -
+如果AI识别错了，说”我是弟弟”或”我是姐姐”就可以切换</p>
+<p>祝你探索愉快，发现世界的精彩！</p>
+</body>
+</html>
