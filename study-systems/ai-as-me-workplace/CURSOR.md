@@ -758,10 +758,49 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 
 ### 工具扩展指南位置
 
+- **飞书资源统一配置**：`capabilities/skills/skills/飞书资源统一配置指南.md` ⭐ **推荐使用**
 - **多维表格**：`capabilities/skills/skills/快速添加新表格.md`
 - **多维表格缓存**：`capabilities/skills/skills/BITABLE-CACHE-GUIDE.md`
 - **在线表格**：`capabilities/skills/skills/SPREADSHEET-CACHE-GUIDE.md`
 - **FMEA导入**：`capabilities/skills/skills/FMEA-IMPORT-QUICK-START.md`
+
+### 飞书资源统一配置（重要！）
+
+系统已建立**统一的飞书资源配置文件**，统一管理三种资源类型：
+- **云文档（Documents）**：飞书Wiki文档
+- **多维表格（Bitables）**：飞书多维表格
+- **在线表格（Spreadsheets）**：飞书在线表格
+
+**统一配置文件**：`work/feishu_resources_config.json`
+
+**优势**：
+- ✅ 统一管理：所有飞书资源在一个配置文件中
+- ✅ 结构化：清晰的字段定义和分类
+- ✅ 易于识别：每个资源有唯一ID和分类标签
+- ✅ 易于添加：只需在配置文件中添加新项
+- ✅ 向后兼容：支持从旧配置自动迁移
+
+**快速添加资源**：
+1. 编辑 `work/feishu_resources_config.json`
+2. 在对应的 `items` 数组中添加新配置项
+3. 运行对应的同步脚本
+
+**查看配置**：
+```bash
+# 查看配置摘要
+python capabilities/skills/skills/view_feishu_config.py
+
+# 查看详细信息
+python capabilities/skills/skills/view_feishu_config.py --detailed
+
+# 按分类查看
+python capabilities/skills/skills/view_feishu_config.py --category
+
+# 查看指定ID的资源
+python capabilities/skills/skills/view_feishu_config.py --id doc_001
+```
+
+**详细说明**：参考 `capabilities/skills/skills/飞书资源统一配置指南.md`
 
 ## Agent指令优化规范（重要！）
 
@@ -804,7 +843,7 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 
 **示例**：
 - ❌ 不好的指令："编写脚本同步多维表格数据"
-- ✅ 好的指令："在 `bitable_cache_manager.py` 的 `BITABLE_CONFIGS` 中添加新表格配置，然后运行 `auto_sync_all.py` 同步"
+- ✅ 好的指令："在 `work/feishu_resources_config.json` 的 `bitables.items` 中添加新表格配置，然后运行 `auto_sync_bitable.py --once` 同步"
 
 #### 4. 提供必要信息
 - [ ] **我是否提供了所有必要的信息？**
@@ -814,7 +853,7 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 
 **示例**：
 - ❌ 不好的指令："添加文档到缓存"
-- ✅ 好的指令："将文档 `https://zyt.feishu.cn/wiki/SyYZwtflPi1on7kpf8KcachBnnh` 添加到 `work/fault_diagnosis_guides_config.json`，并使用 `sync_fault_guides.py` 读取并缓存"
+- ✅ 好的指令："将文档 `https://zyt.feishu.cn/wiki/SyYZwtflPi1on7kpf8KcachBnnh` 添加到 `work/feishu_resources_config.json` 的 `documents.items`，并使用 `sync_fault_guides.py` 读取并缓存"
 
 #### 5. 明确执行方式
 - [ ] **我是否说明了如何执行？**
@@ -832,23 +871,24 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 
 **优化后的指令模板**：
 ```
-按照快速添加指南，将多维表格添加到配置并同步：
+按照统一配置指南，将多维表格添加到配置并同步：
 - URL: https://zyt.feishu.cn/wiki/{node_token}
 - 表格名称: {名称}
 - 使用现有能力: bitable_cache_manager.py
-- 执行方式: 添加到 BITABLE_CONFIGS，然后运行 auto_sync_all.py
+- 配置文件: work/feishu_resources_config.json（统一配置）
+- 执行方式: 在bitables.items中添加配置项，然后运行 auto_sync_bitable.py --once
 ```
 
 #### 场景2：添加新的文档
 
 **优化后的指令模板**：
 ```
-按照快速添加指南，将文档添加到配置并缓存：
+按照统一配置指南，将文档添加到配置并缓存：
 - URL: https://zyt.feishu.cn/wiki/{node_token}
 - 文档名称: {名称}
 - 使用现有能力: fault_guide_reader.py + sync_fault_guides.py
-- 配置文件: work/fault_diagnosis_guides_config.json
-- 执行方式: 添加到配置文件，然后运行 sync_fault_guides.py
+- 配置文件: work/feishu_resources_config.json（统一配置）
+- 执行方式: 在documents.items中添加配置项，然后运行 sync_fault_guides.py
 ```
 
 #### 场景3：使用现有查询功能
@@ -883,11 +923,11 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 
 **✅ 优化后的指令**：
 ```
-按照快速添加指南，将文档添加到配置并缓存：
+按照统一配置指南，将文档添加到配置并缓存：
 - URL: https://zyt.feishu.cn/wiki/SyYZwtflPi1on7kpf8KcachBnnh
 - 使用现有能力: fault_guide_reader.py + sync_fault_guides.py
-- 配置文件: work/fault_diagnosis_guides_config.json
-- 执行方式: 添加到配置文件，然后运行 sync_fault_guides.py 读取并缓存
+- 配置文件: work/feishu_resources_config.json（统一配置）
+- 执行方式: 在documents.items中添加配置项，然后运行 sync_fault_guides.py 读取并缓存
 - 不要编写新的读取脚本
 ```
 
@@ -901,8 +941,9 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 **✅ 优化后的指令**：
 ```
 使用现有的同步脚本同步所有多维表格数据：
-- 使用工具: auto_sync_all.py
-- 执行方式: python auto_sync_all.py --once
+- 使用工具: auto_sync_bitable.py
+- 配置文件: work/feishu_resources_config.json（统一配置）
+- 执行方式: python auto_sync_bitable.py --once
 - 不要编写新的同步脚本
 ```
 
@@ -918,6 +959,7 @@ workflow_suggestion = discovery.suggest_workflow("查询故障信息")
 
 ### 📚 相关文档
 
+- **飞书资源统一配置**：`capabilities/skills/skills/飞书资源统一配置指南.md` ⭐ **推荐使用**
 - **多维表格快速添加**：`capabilities/skills/skills/快速添加新表格.md`
 - **文档快速添加**：`capabilities/skills/skills/故障定位系统配置说明.md`
 - **工具重用原则**：见 CURSOR.md "工具重用原则"章节
