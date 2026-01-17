@@ -1,0 +1,49 @@
+{
+  "fmea_name": "10_Planning_System_SW_FMEA",
+  "timestamp": "2026-01-17T20:15:00.278340",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 1,
+        "created": 0,
+        "existing": 1,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "Planning": "recv5sgTH94UBW"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 2,
+        "created": 2,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      },
+      "function_to_record_id": {
+        "规划并输出轨迹": "recv8yU2jxjdGg",
+        "输出行为类别": "recv8yU3y3aadF"
+      }
+    },
+    "fmea": {
+      "success": true,
+      "stats": {
+        "total": 2,
+        "created": 2,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      }
+    }
+  }
+}

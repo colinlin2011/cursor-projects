@@ -1,0 +1,62 @@
+{
+  "fmea_name": "04_Calibration_System_SW_FMEA",
+  "timestamp": "2026-01-17T19:55:15.804525",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 1,
+        "created": 0,
+        "existing": 1,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "Calibration": "recv53OGT66JOD"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 15,
+        "created": 3,
+        "existing": 12,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      },
+      "function_to_record_id": {
+        "Receive input Wheel Speed/odometry  messages": "recv8yP38wmCZh",
+        "Receive input image messages and their feature list(sCAM,Sideview,Topview,Front Mono,Rear Mono)": "recv8yP4e4Xxn0",
+        "Estimate sCAM intrinsics": "recv53QNXDXKI5",
+        "Estimate sCAM extrinsics": "recv59jIOLsRBq",
+        "Estimate left topview extrinsics": "recv59qH1m6eyT",
+        "Estimate right topview extrinsics": "recv5pH4QT4ScP",
+        "Estimate front topview extrinsics": "recv5pH5s4HL0G",
+        "Estimate rear topview extrinsics": "recv5pH5s4nGY3",
+        "Estimate front-left sideview extrinsics": "recv5pH5s4Zo97",
+        "Estimate front-right sideview extrinsics": "recv5pH5s46PPm",
+        "Estimate rear-left sideview extrinsics": "recv5pH5s4twjA",
+        "Estimate rear-right sideview extrinsics": "recv5pH5s4TSXX",
+        "Estimate front mono extrinsics": "recv5pH5s4L3eA",
+        "Estimate rear mono extrinsics": "recv5pH5s4HSEO",
+        "calibration monitor": "recv8yPbjm3z6u"
+      }
+    },
+    "fmea": {
+      "success": true,
+      "stats": {
+        "total": 132,
+        "created": 132,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      }
+    }
+  }
+}

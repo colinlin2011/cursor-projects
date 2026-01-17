@@ -1,0 +1,79 @@
+{
+  "fmea_name": "10_Planning_System_SW_FMEA",
+  "timestamp": "2026-01-17T20:43:18.931669",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 6,
+        "created": 6,
+        "existing": 0,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "/*only for Driving  Planning*/": "recv8z18SrBn9A",
+        "PreProcessor": "recv8z1a5vAujc",
+        "Prediction": "recv8z1bpIzZEd",
+        "RoadStructure": "recv8z1cIDRj3p",
+        "router": "recv8z1dZq7Ucd",
+        "注：未注明NOCD/NOHD/MOD时，默认各模式下输出相同": "recv8z1fcPrfms"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 27,
+        "created": 27,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      },
+      "function_to_record_id": {
+        "Receive the FreeSpace data": "recv8z1ho6EZsH",
+        "Receive the EgoMotion data": "recv8z1iFFLIoJ",
+        "Receive the LaneFusion data": "recv8z1jXXjx0f",
+        "Receive the MOT data": "recv8z1leoBLGn",
+        "Receive the SysMode data": "recv8z1muAxJni",
+        "Receive the Proxy data": "recv8z1nNALSNN",
+        "Output the lane line position": "recv8z1p67gRHd",
+        "输出occ map": "recv8z1qsA4jZn",
+        "输出最优中心参考线\n\n[至少会输出一条（本车道）；\n若信息完整，会输出本车道+左车道+\n右车道共三个车道的最优中心参考线信息]": "recv8z1rJuDlBQ",
+        "关联参考线与车道\n（参考线对应的左车道线、右车道线）": "recv8z1t5fmy1w",
+        "关联参考线左右继\n（参考线之间的拓扑关系）": "recv8z1urcFNbV",
+        "NOCD场景识别：基于车道线质量输出乡村/非乡村模式（开发中）\n\n乡村模式响应：\nRS：沿着道路边界生成中心线\nOSP：放开一些绕行ODD": "recv8z1vBlYm3u",
+        "NOHD：输出导航变道信号": "recv8z1wYXSYXk",
+        "MOD、NOCD：输出可行corridor": "recv8z1yjH8m0f",
+        "输出智能限速信息给OSP\n\ninput：\n1.地图道路限速\n2.地图曲率限速\n3.路由点类型限制车速": "recv8z1zFRkAqQ",
+        "输出智能调速信息给DMM（调速均先发送给DMM，由DMM整体仲裁决策，router——>DMM——>OSP）\n\ninput：\nMOD ：记忆地图经验车速\nNOCD ：基于SD MAP 限速值调速\nNOHD：基于导航限速信息调速\n\n//调速：在时间区间内 调 期望车速": "recv8z1AVyfHfV",
+        "Output the Manuever type": "recv8z1CcA5Q3p",
+        "Output the Maneuver intention": "recv8z1DueIYEX",
+        "Generate the Prediction Trajectory with Probability": "recv8z1EJh2ID3",
+        "[process]基于本车运动学模型生成可达轨迹集合，输出算力限制内的feasible solution": "recv8z1G38lzZJ",
+        "[process]feasible solution classification": "recv8z1HyMh4Yt",
+        "[process]每个label下选择一条optimized feasible solution": "recv8z1IXy04VZ",
+        "[process]对feasible solution进行优化，输出10条path": "recv8z1Kh5ylmv",
+        "[process]对path进行速度规划，合并相近轨迹，输出trajectory备选集（一般为8条左右）": "recv8z1LPqjD2u",
+        "Output the optimized trajectory": "recv8z1N7QgcU8",
+        "behavior decision": "recv8z1OowLp0t",
+        "总结上游需要在OSP端做的兜底需求": "recv8z1PH1kcme"
+      }
+    },
+    "fmea": {
+      "success": true,
+      "stats": {
+        "total": 27,
+        "created": 27,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      }
+    }
+  }
+}

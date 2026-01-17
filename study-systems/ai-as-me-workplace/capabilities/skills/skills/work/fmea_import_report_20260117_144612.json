@@ -1,0 +1,622 @@
+{
+  "fmea_name": "Control",
+  "target_table": "失效模式影响分析表_SW",
+  "dry_run": false,
+  "timestamp": "2026-01-17T14:46:12.738042",
+  "result": {
+    "success": false,
+    "stats": {
+      "total": 357,
+      "success": 0,
+      "failed": 332,
+      "skipped": 25,
+      "errors": [
+        {
+          "row": 6,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1311",
+                "text": "Safety-1311 - Correctness check of the Ego motion data",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 17,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1310",
+                "text": "Safety-1310- Correctness check of the trajectory data",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": "high",
+            "Comments": null
+          }
+        },
+        {
+          "row": 139,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1314",
+                "text": "Safety-1314 Cross Check of decoupled trajectory",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 141,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1314",
+                "text": "Safety-1314 Cross Check of decoupled trajectory",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 144,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1314",
+                "text": "Safety-1314 Cross Check of decoupled trajectory",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 146,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1314",
+                "text": "Safety-1314 Cross Check of decoupled trajectory",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 159,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1322",
+                "text": "Safety-1322 - Monitoring of lateral position error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 161,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1322",
+                "text": "Safety-1322 - Monitoring of lateral position error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 164,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1322",
+                "text": "Safety-1322 - Monitoring of lateral position error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 166,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1322",
+                "text": "Safety-1322 - Monitoring of lateral position error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 179,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1326",
+                "text": "Safety-1326 - Monitoring of longitudinal velocity error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 181,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1326",
+                "text": "Safety-1326 - Monitoring of longitudinal velocity error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 185,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1326",
+                "text": "Safety-1326 - Monitoring of longitudinal velocity error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 198,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1327",
+                "text": "Safety-1327 - Monitoring of longitudinal acceleration error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 200,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1327",
+                "text": "Safety-1327 - Monitoring of longitudinal acceleration error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 203,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1327",
+                "text": "Safety-1327 - Monitoring of longitudinal acceleration error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 205,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1327",
+                "text": "Safety-1327 - Monitoring of longitudinal acceleration error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 250,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1316",
+                "text": "Safety-1316 - Consistency check of the control mode and lateral & longitudinal control mode",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 321,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1332",
+                "text": "Safety-1332 - Range monitoring and limitation of deceleration command",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 326,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1334",
+                "text": "Safety-1334 - Falling slope monitoring and limitation of deceleration command",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 328,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1327",
+                "text": "Safety-1327 - Monitoring of longitudinal acceleration error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 333,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1337",
+                "text": "Safety-1337 - Falling slope monitoring and limitation of acceleration command",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 335,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1324",
+                "text": "Safety-1324 - Monitoring of yaw rate error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 337,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1324",
+                "text": "Safety-1324 - Monitoring of yaw rate error",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "row": 342,
+          "error": "没有可映射的字段",
+          "data": {
+            "": null,
+            "Element Name": null,
+            "Function Description": null,
+            "Guide Word": null,
+            "Potential Failure Mode": null,
+            "Potential Failure Effect": null,
+            "Safety Related？": null,
+            "UE": null,
+            "Safety Mechanism(TSR)": [
+              {
+                "cellPosition": null,
+                "link": "https://polarion-rd.djicorp.com/polarion/#/project/Safety/workitem?id=Safety-1330",
+                "text": "Safety-1330 - Raising slope monitoring and limitation of steering command",
+                "type": "url"
+              }
+            ],
+            "Safety mechanism DC": null,
+            "Comments": null
+          }
+        },
+        {
+          "batch": true,
+          "error": "返回格式异常",
+          "record_count": 332
+        }
+      ]
+    }
+  }
+}

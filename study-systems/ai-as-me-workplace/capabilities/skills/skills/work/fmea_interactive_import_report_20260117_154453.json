@@ -1,0 +1,66 @@
+{
+  "fmea_name": "Control",
+  "steps": [
+    "architecture",
+    "function"
+  ],
+  "dry_run": false,
+  "timestamp": "2026-01-17T15:44:53.626231",
+  "results": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 6,
+        "created": 0,
+        "existing": 6,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "CtrlDecision": "recv8xKgMHUNag",
+        "CtrlReciver": "recv8xKjby69mO",
+        "CtrlSender": "recv8xKl6Zc1K9",
+        "LatCtrl": "recv8xKmGmVv0P",
+        "LongCtrl": "recv8xKoDqAEmj",
+        "TrajDecouple": "recv8xKr5hdac2"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 6,
+        "created": 0,
+        "existing": 6,
+        "failed": 0,
+        "skipped": 0,
+        "errors": []
+      },
+      "function_to_record_id": {
+        "Receive the PoseData from Egomotion": "recv8xMmbyVfNI",
+        "Output the reference trajectory command of Ego position error on x-axis\n本车纵向位置偏差参考指令[-10,10]": "recv8xMnD9A5NK",
+        "According to the system mode of DMM, Output the control mode.\n[0,4]": "recv8xMp62iwhV",
+        "Realize the Brake control, and send the BrakeCtrl Command to CtrlSender \n[0,1]": "recv8xMquHYSpW",
+        "Realize the Steer control, and send the SteerCtrl Command  to CtrlSender \n[-1,1]": "recv8xMrLMP9el",
+        "Output the BrakeCtrl Command  [0,1]": "recv8xMt4MwcwT"
+      }
+    }
+  },
+  "element_name_to_record_id": {
+    "Control": "rec26pFCvVfGt4",
+    "CtrlDecision": "recv8xKgMHUNag",
+    "CtrlReciver": "recv8xKjby69mO",
+    "CtrlSender": "recv8xKl6Zc1K9",
+    "LatCtrl": "recv8xKmGmVv0P",
+    "LongCtrl": "recv8xKoDqAEmj",
+    "TrajDecouple": "recv8xKr5hdac2"
+  },
+  "function_to_record_id": {
+    "Receive the PoseData from Egomotion": "recv8xMmbyVfNI",
+    "Output the reference trajectory command of Ego position error on x-axis\n本车纵向位置偏差参考指令[-10,10]": "recv8xMnD9A5NK",
+    "According to the system mode of DMM, Output the control mode.\n[0,4]": "recv8xMp62iwhV",
+    "Realize the Brake control, and send the BrakeCtrl Command to CtrlSender \n[0,1]": "recv8xMquHYSpW",
+    "Realize the Steer control, and send the SteerCtrl Command  to CtrlSender \n[-1,1]": "recv8xMrLMP9el",
+    "Output the BrakeCtrl Command  [0,1]": "recv8xMt4MwcwT"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "fmea_name": "Control",
+  "steps": [
+    "fmea"
+  ],
+  "dry_run": false,
+  "timestamp": "2026-01-17T19:09:01.340151",
+  "results": {
+    "fmea": {
+      "success": false,
+      "stats": {
+        "total": 332,
+        "created": 0,
+        "existing": 0,
+        "failed": 332,
+        "skipped": 0,
+        "errors": [
+          {
+            "batch": 1,
+            "error": "返回格式异常: {\n  \"records\": [\n    {\n      \"fields\": {\n        \"SW_Safety Related\": \"是\",\n        \"关联功能\": [\n          \"recv8xMmbyVfNI\"\n        ],\n        \"实际识别的失效模式\": \"Egomotion PoseData接收过程丢失\",\n        \"引导词\": \"no/loss\",\n        \"潜在失效影响\": \"Egomotion PoseData接收过程丢失，丢失本车定位信息的输入，导致纵向/横向控制输入丢失，进而导致非预期制动/制动丢失/非预期加速/加速丢失/非预期转向/转向丢失，有潜在碰撞风险\"\n      },\n      \"id\": \"recv8yDlQp4TVk\",\n      \"record_id\": \"recv8yDlQp4TVk\"\n    },\n    {\n      \"fields\": {\n        \"SW_Safety Related\": \"是\",\n        \"关联功能\": [\n          \"recv8xMmb"
+          }
+        ]
+      }
+    }
+  },
+  "element_name_to_record_id": {},
+  "function_to_record_id": {}
+}

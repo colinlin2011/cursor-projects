@@ -1,0 +1,58 @@
+{
+  "fmea_name": "08_SceneNet_System_SW_FMEA",
+  "timestamp": "2026-01-17T20:40:01.750219",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 1,
+        "created": 0,
+        "existing": 1,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "SceneNet": "recv5sgEn3zeF0"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 11,
+        "created": 11,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      },
+      "function_to_record_id": {
+        "Esitimate classification result for sCAM\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊，输出0-4)": "recv8z0l0kPbVC",
+        "Esitimate intensity of classification result for sCAM\n(不可用、正常、严重等)": "recv8z0msx7Oy3",
+        "Esitimate classification result for topview\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊)": "recv8z0nSfrsFg",
+        "Esitimate intensity of classification result for topview\n(不可用、正常、严重等)": "recv8z0pj9qeDL",
+        "Esitimate classification result for sideview\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊)": "recv8z0qDh83Bd",
+        "Esitimate intensity of classification result for sideview\n(不可用、正常、严重等)": "recv8z0rT9GVYj",
+        "Esitimate classification result for mono\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊)": "recv8z0tgPFY3a",
+        "Esitimate intensity of classification result for mono\n(不可用、正常、严重等)\n可以考虑分开描述": "recv8z0uAi535L",
+        "Output image quality assessment message": "recv8z0w2lhMbx",
+        "Output scene recognition classification messge": "recv8z0xhnJIsW",
+        "Safety Monitor": "recv8z0yDFfONa"
+      }
+    },
+    "fmea": {
+      "success": true,
+      "stats": {
+        "total": 11,
+        "created": 11,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      }
+    }
+  }
+}

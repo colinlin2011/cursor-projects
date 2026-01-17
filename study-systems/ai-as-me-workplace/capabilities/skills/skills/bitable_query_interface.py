@@ -184,13 +184,14 @@ class BitableQueryInterface:
         
         return results
     
-    def get_table_data(self, table_name: str, cache_file: str = None) -> Optional[Dict]:
+    def get_table_data(self, table_name: str = None, cache_file: str = None, table_id: str = None) -> Optional[Dict]:
         """
         获取整个数据表的数据
         
         Args:
-            table_name: 数据表名称
+            table_name: 数据表名称（如果提供table_id则忽略）
             cache_file: 缓存文件名（可选）
+            table_id: 数据表ID（优先使用，比table_name更可靠）
             
         Returns:
             数据表信息字典，包含：
@@ -199,6 +200,28 @@ class BitableQueryInterface:
             - records: 记录列表
             - record_count: 记录数
         """
+        # 如果提供了table_id，优先使用table_id查询
+        if table_id:
+            if cache_file:
+                data = self._load_cache_data(cache_file)
+                if data:
+                    tables = data.get('tables', {})
+                    # 遍历所有表，查找匹配的table_id
+                    for table_name_key, table_data in tables.items():
+                        if isinstance(table_data, dict) and table_data.get('table_id') == table_id:
+                            return table_data
+            else:
+                # 从所有缓存中搜索
+                for config in BITABLE_CONFIGS:
+                    data = self._load_cache_data(config['cache_file'])
+                    if data:
+                        tables = data.get('tables', {})
+                        for table_name_key, table_data in tables.items():
+                            if isinstance(table_data, dict) and table_data.get('table_id') == table_id:
+                                return table_data
+            return None
+        
+        # 如果没有提供table_id，使用table_name查询（原有逻辑）
         if cache_file:
             data = self._load_cache_data(cache_file)
             if data:

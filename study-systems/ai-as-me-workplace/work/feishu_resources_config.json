@@ -1,0 +1,161 @@
+{
+  "version": "1.0",
+  "description": "飞书资源统一配置文件 - 包含云文档、多维表格、在线表格的配置",
+  "last_updated": "2026-01-17",
+  
+  "documents": {
+    "description": "飞书云文档（Wiki文档）配置",
+    "cache_dir": "work/fault_diagnosis_cache/guides",
+    "sync_script": "sync_fault_guides.py",
+    "cache_expiry_hours": 24,
+    "items": [
+      {
+        "id": "guide_001",
+        "name": "故障定位指引文档1",
+        "node_token": "UBS2wO9aai7jB7kaw4QcQGNbngc",
+        "url": "https://zyt.feishu.cn/wiki/UBS2wO9aai7jB7kaw4QcQGNbngc",
+        "cache_file": "guide_UBS2wO9aai7jB7kaw4QcQGNbngc.json",
+        "category": "故障定位指引",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "故障定位指引文档1"
+      },
+      {
+        "id": "guide_002",
+        "name": "故障定位指引文档2",
+        "node_token": "H7a5w5tqBidVHMkCqxHc6AmEn5c",
+        "url": "https://zyt.feishu.cn/wiki/H7a5w5tqBidVHMkCqxHc6AmEn5c",
+        "cache_file": "guide_H7a5w5tqBidVHMkCqxHc6AmEn5c.json",
+        "category": "故障定位指引",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "故障定位指引文档2"
+      },
+      {
+        "id": "guide_003",
+        "name": "故障定位指引文档3",
+        "node_token": "NUgTwgJWpikCV7k8OFqcH8kYn7e",
+        "url": "https://zyt.feishu.cn/wiki/NUgTwgJWpikCV7k8OFqcH8kYn7e",
+        "cache_file": "guide_NUgTwgJWpikCV7k8OFqcH8kYn7e.json",
+        "category": "故障定位指引",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "故障定位指引文档3"
+      },
+      {
+        "id": "guide_004",
+        "name": "故障定位指引文档4",
+        "node_token": "Q9m2wIOxfiyNKKkNojCcljxInBf",
+        "url": "https://zyt.feishu.cn/wiki/Q9m2wIOxfiyNKKkNojCcljxInBf",
+        "cache_file": "guide_Q9m2wIOxfiyNKKkNojCcljxInBf.json",
+        "category": "故障定位指引",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "故障定位指引文档4"
+      },
+      {
+        "id": "guide_005",
+        "name": "故障定位指引文档5",
+        "node_token": "R3NowdLHoiVOtMks6lzcW7sYnCf",
+        "url": "https://zyt.feishu.cn/wiki/R3NowdLHoiVOtMks6lzcW7sYnCf",
+        "cache_file": "guide_R3NowdLHoiVOtMks6lzcW7sYnCf.json",
+        "category": "故障定位指引",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "故障定位指引文档5"
+      },
+      {
+        "id": "doc_001",
+        "name": "组织架构和业务架构",
+        "node_token": "Mh9XwnXDuijyCXk6TFYcdR6qnLd",
+        "url": "https://zyt.feishu.cn/wiki/Mh9XwnXDuijyCXk6TFYcdR6qnLd",
+        "cache_file": "guide_Mh9XwnXDuijyCXk6TFYcdR6qnLd.json",
+        "category": "组织管理",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "组织架构和业务架构文档"
+      },
+      {
+        "id": "doc_002",
+        "name": "个人工作记录",
+        "node_token": "SyYZwtflPi1on7kpf8KcachBnnh",
+        "url": "https://zyt.feishu.cn/wiki/SyYZwtflPi1on7kpf8KcachBnnh",
+        "cache_file": "guide_SyYZwtflPi1on7kpf8KcachBnnh.json",
+        "category": "个人记录",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "个人工作记录文档"
+      }
+    ]
+  },
+  
+  "bitables": {
+    "description": "飞书多维表格配置",
+    "cache_dir": "work/bitable_cache",
+    "sync_script": "auto_sync_bitable.py",
+    "cache_expiry_hours": 24,
+    "items": [
+      {
+        "id": "bitable_001",
+        "name": "功能安全部人力盘点",
+        "node_token": "CGMnwhxzLixWhGk87jYcDRfonsh",
+        "url": "https://zyt.feishu.cn/wiki/CGMnwhxzLixWhGk87jYcDRfonsh",
+        "cache_file": "hr_inventory.json",
+        "category": "人力资源",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "功能安全部人力盘点表"
+      },
+      {
+        "id": "bitable_002",
+        "name": "功能安全业务数据",
+        "node_token": "BPddwBxoRiPFSsk8jZJctCMmndg",
+        "url": "https://zyt.feishu.cn/wiki/BPddwBxoRiPFSsk8jZJctCMmndg",
+        "cache_file": "new_bitable.json",
+        "category": "业务数据",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "功能安全业务数据多维表格，包含缺陷问题闭环表"
+      },
+      {
+        "id": "bitable_003",
+        "name": "历史工作平台",
+        "app_token": "YWDGbSZZKalcnQskTThcSUSXnub",
+        "url": "https://zyt.feishu.cn/base/YWDGbSZZKalcnQskTThcSUSXnub",
+        "cache_dir": "work/legacy-platform/cache",
+        "category": "历史数据",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "历史工作平台多维表格（18个数据表）",
+        "note": "此表格包含18个数据表，结构已缓存但记录数据因权限限制无法读取"
+      }
+    ]
+  },
+  
+  "spreadsheets": {
+    "description": "飞书在线表格配置",
+    "cache_dir": "work/spreadsheet_cache",
+    "sync_script": "auto_sync_spreadsheet.py",
+    "cache_expiry_hours": 24,
+    "items": [
+      {
+        "id": "spreadsheet_001",
+        "name": "在线表格示例",
+        "node_token": "TDlnwRfpBikbUIk5guDcRyN5neh",
+        "url": "https://zyt.feishu.cn/wiki/TDlnwRfpBikbUIk5guDcRyN5neh",
+        "cache_file": "spreadsheet_example.json",
+        "category": "示例",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "在线表格示例"
+      }
+    ]
+  },
+  
+  "metadata": {
+    "space_id": "7353073903872868356",
+    "app_id": "cli_a9c92ca516f99bd9",
+    "default_sync_interval_hours": 24,
+    "default_cache_expiry_hours": 24
+  }
+}

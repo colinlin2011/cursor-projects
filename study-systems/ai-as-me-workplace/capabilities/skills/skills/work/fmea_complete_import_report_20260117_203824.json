@@ -1,0 +1,123 @@
+{
+  "fmea_name": "08_SceneNet_System_SW_FMEA",
+  "timestamp": "2026-01-17T20:38:04.553106",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 1,
+        "created": 0,
+        "existing": 1,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "SceneNet": "recv5sgEn3zeF0"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 11,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 11,
+        "errors": [],
+        "skipped_items": [
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate classification result for sCAM\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊，输出0-4)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate intensity of classification result for sCAM\n(不可用、正常、严重等)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate classification result for topview\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate intensity of classification result for topview\n(不可用、正常、严重等)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate classification result for sideview\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate intensity of classification result for sideview\n(不可用、正常、严重等)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate classification result for mono\n(黑屏、遮挡、亮度过低、亮度过高、图像模糊)",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Esitimate intensity of classification result for mono\n(不可用、正常、严重等)\n可以考虑分开描述",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Output image quality assessment message",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Output scene recognition classification messge",
+              "Element Name": null
+            }
+          },
+          {
+            "reason": "找不到对应的架构元素: None",
+            "data": {
+              "Function Description": "Safety Monitor",
+              "Element Name": null
+            }
+          }
+        ]
+      },
+      "function_to_record_id": {}
+    },
+    "fmea": {
+      "success": false,
+      "stats": {
+        "total": 11,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 11,
+        "errors": []
+      }
+    }
+  }
+}

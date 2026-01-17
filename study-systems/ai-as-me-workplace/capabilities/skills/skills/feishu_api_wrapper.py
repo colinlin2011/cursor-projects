@@ -1029,7 +1029,8 @@ class FeishuAPI:
         self,
         app_token: str,
         table_id: str,
-        fields: Dict[str, Any]
+        fields: Dict[str, Any],
+        use_user_token: bool = True
     ) -> Optional[Dict]:
         """
         创建多维表格记录
@@ -1038,6 +1039,7 @@ class FeishuAPI:
             app_token: 多维表格app_token
             table_id: 数据表ID
             fields: 字段数据
+            use_user_token: 是否使用用户身份凭证
             
         Returns:
             创建的记录或None
@@ -1046,7 +1048,7 @@ class FeishuAPI:
         data = {
             "fields": fields
         }
-        return self._open_platform_request('POST', endpoint, data)
+        return self._open_platform_request('POST', endpoint, data, use_user_token=use_user_token)
     
     def get_bitable(self, app_token: str, use_user_token: bool = True) -> Optional[Dict]:
         """

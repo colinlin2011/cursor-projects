@@ -1,0 +1,78 @@
+{
+  "fmea_name": "05_EgoMotion_System_SW_FMEA",
+  "timestamp": "2026-01-17T20:11:45.088650",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 1,
+        "created": 0,
+        "existing": 1,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4",
+        "EgoMotion": "recv5sgENgwH8K"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 31,
+        "created": 31,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      },
+      "function_to_record_id": {
+        "Receive input message": "recv8yTcyrVs4N",
+        "Process image information": "recv8yTdC8SdML",
+        "Process calibration information": "recv8yTeJ1rejC",
+        "Estimate Ego position on x-axis(world coordinate)\n自车纵向位置[m，(-INF, INF)]": "recv8yTfVr3vp8",
+        "Estimate Ego position on y-axis(world coordinate)\n自车横向位置[m，(-INF, INF)]": "recv8yTh77rhNk",
+        "Estimate Ego position on z-axis(world coordinate)\n自车垂向位置[m，(-INF, INF)]": "recv8yTifLQf0A",
+        "Estimate Ego velocity on x-axis(world coordinate)\n自车纵向速度[m/s，[-100,100]]": "recv8yTjoCea07",
+        "Estimate Ego velocity on y-axis(world coordinate)\n自车横向速度[m/s，[-100,100]]": "recv8yTkwm2VMe",
+        "Estimate Ego velocity on z-axis(world coordinate)\n自车垂向速度[m/s，[-100,100]]": "recv8yTlErO2tc",
+        "Estimate Ego acceleration on x-axis(body coordinate)\n自车纵向加速度[m/s^2，[-10,10]]": "recv8yTmLCY3OZ",
+        "Estimate Ego acceleration on y-axis(body coordinate)\n自车横向加速度[m/s^2，[-10,10]]": "recv8yTnTOIwHt",
+        "Estimate Ego acceleration on z-axis(body coordinate)\n自车垂向加速度[m/s^2，[-10,10]]": "recv8yToZtyGNQ",
+        "Estimate Ego roll angle(world coordinate) \n侧倾角(x-axis in body coordinate)[rad，[-2pi, 2pi]]": "recv8yTq7hYvjn",
+        "Estimate Ego pitch angle(world coordinate)\n俯仰角(y-axis in body coordinate)[rad，[-2pi, 2pi]]": "recv8yTreeaxNt",
+        "Estimate Ego yaw angle(world coordinate)\n横摆角(z-axis in body coordinate)[rad，[-2pi, 2pi]]": "recv8yTsqdeHZB",
+        "Estimate Ego roll angle rate(world coordinate)\n侧倾角速度(x-axis in body coordinate)[rad/s，(-2, 2)]": "recv8yTtyEPsLL",
+        "Estimate Ego pitch angle rate(world coordinate)\n俯仰角速度(y-axis in body coordinate)[rad/s，(-2, 2)]": "recv8yTuJ4V0cI",
+        "Estimate Ego yaw angle rate(world coordinate)\n横摆角速度(z-axis in body coordinate)[rad/s，(-2, 2)]": "recv8yTvPNXXHG",
+        "Compute x-axis of IMU quaternion(body coordinate)\n四元数实部[无单位，无范围]": "recv8yTx0C7qOk",
+        "Compute y-axis of IMU quaternion(body coordinate)\n四元数实部[无单位，无范围]": "recv8yTy879pin",
+        "Compute z-axis of IMU quaternion(body coordinate)\n四元数实部[无单位，无范围]": "recv8yTzlGUafQ",
+        "Compute w-axis of IMU quaternion(body coordinate)\n四元数虚部[无单位，无范围]": "recv8yTACxTFBu",
+        "Compute IMU x acceleration bias(body coordinate)\nIMU加速度计纵向加速度偏差[m/s^2，[-0.5,0.5]]": "recv8yTBT8YFcA",
+        "Compute IMU y acceleration bias(body coordinate)\nIMU加速度计横向加速度偏差[m/s^2，[-0.5,0.5]]": "recv8yTCWjh8M4",
+        "Compute IMU z acceleration bias(body coordinate)\nIMU加速度计垂向加速度偏差[m/s^2，[-0.5,0.5]]": "recv8yTE7x0nL3",
+        "Compute IMU x gyroscope bias(body coordinate)\nIMU陀螺计纵向角速度偏差[deg/s，[-3.0,3.0]]": "recv8yTFgfdzYf",
+        "Compute IMU y gyroscope bias(body coordinate)\nIMU陀螺计横向角速度偏差[deg/s，[-3.0,3.0]]": "recv8yTGpP5rkq",
+        "Compute IMU z gyroscope bias(body coordinate)\nIMU陀螺计垂向角速度偏差[deg/s，[-3.0,3.0]]": "recv8yTHxlZIc0",
+        "Select output_mode\nout mode-sensor fusion mode of EgoMotion[int，0-7]": "recv8yTII73B8J",
+        "Send output odometry message": "recv8yTJTS7YCh",
+        "Fault Diagnosis": "recv8yTL4898Ji"
+      }
+    },
+    "fmea": {
+      "success": true,
+      "stats": {
+        "total": 31,
+        "created": 31,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      }
+    }
+  }
+}

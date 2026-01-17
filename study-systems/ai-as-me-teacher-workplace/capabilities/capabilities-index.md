@@ -7,12 +7,15 @@
 ## 能力分类索引
 
 ### 按类型分类
-- **Skill能力**：[能力列表]
+- **Skill能力**：
+  - SKILL-DOC-CONVERT-001: Markdown转Word文档转换器
 - **Agent能力**：[能力列表]
 - **MCP能力**：[能力列表]
 - **本地工具**：[能力列表]
 
 ### 按功能分类
+- **文档处理**：
+  - SKILL-DOC-CONVERT-001: Markdown转Word文档转换器
 - **教学相关**：[能力列表]
 - **科研相关**：[能力列表]
 - **产研相关**：[能力列表]
@@ -23,8 +26,7 @@
 ## 能力详情
 
 ### 能力详情链接
-- [能力1]：[链接]
-- [能力2]：[链接]
+- **SKILL-DOC-CONVERT-001 Markdown转Word文档转换器**：[document-converter.md](skills/document-converter.md)
 
 ---
 

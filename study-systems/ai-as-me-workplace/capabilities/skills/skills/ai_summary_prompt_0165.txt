@@ -1,0 +1,33 @@
+请基于以下关于故障 0x0165 的信息，生成一份简洁、易读的故障概况总结。
+
+要求：
+1. 用中文总结，语言简洁专业
+2. 突出关键信息：故障名称、ASIL等级、涉及模块、触发条件
+3. 整合多个来源的信息，去除重复和冗余
+4. 如果信息有冲突，优先使用安全需求总表的信息
+5. 格式清晰，使用标题和列表
+
+故障信息：
+## 安全需求总表信息：
+
+### 记录1:
+- 故障名称: SAFETY_PLN_NO_TRAJECTORY
+- 故障描述: 当检测到激活智驾之后：连续2s收不到轨迹topic系统应该报告Element Id = 3, Fault Id = 0x0165
+当检测到故障条件不满足时系统应该清除Fault Id
+- ASIL等级: B
+- 涉及模块: Planning
+- 触发条件: 激活智驾之后：连续2s收不到轨迹topic
+
+### 记录2:
+- 故障名称: FUSA_CTRL_IMU_TIME_STUCK_ERROR
+- 故障描述: 系统应该检查-IMU time is stuck
+* IMU time stamp is stuck for 500ms
+系统应该报告Fault Id-0x0165
+- ASIL等级: D
+- 涉及模块: Control
+- 触发条件: * IMU time stamp is stuck for 500ms
+
+## 故障定位指引要点：
+2.6节  其次，除去VH泊车建图模式下没有轨迹外，其他系统模式都应该有轨迹。见快捷方式。  如果系统模式正常，则看ego_pose输出，其全程必须有。见快捷方式。  如果ego_pose输出正常，则看PnP，PnP在VH平台的手动模式下没有轨迹【行车激活和P2000模式下一定有】  如果PnP在上述激活模式下没有输出，就找PnP。见快捷方式。  如果 PnP正常输出，但是planning验证失败(lat_auto是否有打印)，找PnP，也可以找planning性能同事。  否则就找planning链路同事。  ## 0.快捷方法  1030之后的版本，智驾模式下，pln上游topic丢失导致165的快速定位指令：  grep planning_fusa | grep 故障时刻  存在如下输出【topic名称 + empty 或者 loss】 即可确认是上游有问题：  ego_pose、nn_decision、bev_lane都没了  bev_lane和 nn_decision没了  ## 1.现象：  txtlog中：planning[e_id:3]报0x165、control[e_ 事支持。  ### 2.6 planning挂死  检索 ProgramServer  ### 2.7 车型未适配 pln不输出  grep car_type 看输出的type数值是否在 car_type.json文件中，若没有则找FO提单让pln适配  ### 2.8 P5模式轨迹丢失-上游问题  topic：/sys/topview_freespace_ptchains/v2 没来导致轨迹丢失，  检索关键词：grep Topview Fs Pt Chain timeout!!  或者 grep tpv_receive_time_out  时间：[20250901_145235][782.165] log：/rawdata/roadtestv3/chery/S56/roadtest/cn/2025/9/20250901/X3L-0237_testlog_daytime/car_2025-09-01_14-40-15/dlog/data0/txtlog-192.168.1.101/data0 【log.0】  是否是 P5看 App Int [非99]  模式  App Int  p
+
+请生成故障概况总结：

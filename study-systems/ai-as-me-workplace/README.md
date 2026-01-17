@@ -114,6 +114,10 @@ AI会基于你的背景、知识库和记忆提供专业支持。
 - 问题解决模式、决策模式、沟通模式、团队管理模式
 - 工作模式：`knowledge/patterns/`
 
+#### 问题抽象知识
+- 根节点问题库、简化模型库、泛化模式库、表示空间映射
+- 问题抽象知识：`knowledge/problem-abstraction/`
+
 #### 经验教训
 - 工作决策、成功经验、失败教训
 - 经验教训：`knowledge/lessons-learned/`
@@ -392,6 +396,9 @@ ai-as-me-workplace/
 │   └── decisions/               # 决策记录
 │       ├── DECISION-TEMPLATE.md
 │       └── decisions/           # 具体决策记录
+│   └── problems/                # 问题分析记录
+│       ├── PROBLEM-TEMPLATE.md
+│       └── problems/            # 具体问题分析记录
 │
 ├── team/                        # 团队管理目录
 │   ├── team-structure.md        # 团队结构
@@ -421,6 +428,11 @@ ai-as-me-workplace/
 │   │   ├── decision-making/   # 决策模式
 │   │   ├── communication/     # 沟通模式
 │   │   └── team-management/    # 团队管理模式
+│   ├── problem-abstraction/     # 问题抽象知识库
+│   │   ├── root-problems/      # 根节点问题库
+│   │   ├── simplified-models/  # 简化模型库
+│   │   ├── generalization-patterns/ # 泛化模式库
+│   │   └── representation-space/ # 表示空间映射
 │   └── lessons-learned/         # 经验教训
 │
 ├── memory/                      # 记忆架构目录（核心）
@@ -439,7 +451,8 @@ ai-as-me-workplace/
 │   │   ├── thinking-models.md  # 思维模式
 │   │   ├── decision-frameworks.md # 决策框架
 │   │   ├── cognitive-preferences.md # 认知偏好
-│   │   └── reasoning-traces.md # 推理轨迹
+│   │   ├── reasoning-traces.md # 推理轨迹
+│   │   └── problem-abstraction-layer.md # 问题抽象层
 │   └── core/                    # 核心层
 │       ├── values.md            # 价值观
 │       ├── personality.md       # 性格特征
@@ -510,6 +523,25 @@ ai-as-me-workplace/
 - **模式提取**：从工作中提取工作模式
 - **经验沉淀**：将经验转化为知识库条目
 - **持续优化**：基于反馈优化知识库
+
+### 5. 如何使用问题抽象框架
+
+当你遇到复杂问题时，可以使用问题抽象框架进行深入分析：
+
+1. **简单化（本质抽象）**：问自己"这个问题的本质是什么？"去除冗余，提取核心要素
+2. **根节点问题（问题溯源）**：问自己"导致这个问题的根本原因是什么？"构建问题树，找到根节点
+3. **泛化（模式提取）**：问自己"这类问题有什么通用模式？"从具体问题抽象为通用模式
+4. **表示空间（知识定位）**：问自己"这个问题在知识网络中的位置在哪里？"建立知识连接
+
+**示例**：
+- **问题**："Docker方案太复杂，但我想用Pandoc转换PDF"
+- **简单化**：本质是"简单需求 vs 复杂方案"的匹配问题
+- **根节点问题**：投入产出比不匹配
+- **泛化**：实用性优先决策模式
+- **表示空间**：技术方案选择领域，与投入产出比评估框架相关
+- **结果**：采用浏览器打印方案，满足当前需求
+
+详细说明请参考：[问题抽象与知识表示框架](knowledge/problem-abstraction/README.md)
 
 ---
 

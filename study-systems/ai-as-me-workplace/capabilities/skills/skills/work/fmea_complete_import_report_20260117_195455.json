@@ -1,0 +1,44 @@
+{
+  "fmea_name": "04_Calibration_System_SW_FMEA",
+  "timestamp": "2026-01-17T19:54:39.770063",
+  "dry_run": true,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "dry_run": true,
+      "stats": {
+        "total": 1,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {}
+    },
+    "function": {
+      "success": true,
+      "dry_run": true,
+      "stats": {
+        "total": 15,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": []
+      },
+      "function_to_record_id": {}
+    },
+    "fmea": {
+      "success": true,
+      "dry_run": true,
+      "stats": {
+        "total": 132,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": []
+      }
+    }
+  }
+}

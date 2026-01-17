@@ -1,0 +1,28 @@
+{
+  "fmea_name": "Control",
+  "steps": [
+    "fmea"
+  ],
+  "dry_run": false,
+  "timestamp": "2026-01-17T19:08:05.534302",
+  "results": {
+    "fmea": {
+      "success": false,
+      "stats": {
+        "total": 332,
+        "created": 0,
+        "existing": 0,
+        "failed": 332,
+        "skipped": 0,
+        "errors": [
+          {
+            "batch": 1,
+            "error": "返回格式异常"
+          }
+        ]
+      }
+    }
+  },
+  "element_name_to_record_id": {},
+  "function_to_record_id": {}
+}

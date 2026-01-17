@@ -94,11 +94,13 @@ class FaultGuideReader:
         print(f"从Wiki加载指引文档: {node_token}...")
         
         try:
-            # 获取document_id
+            # 方法1：通过Wiki节点获取document_id
             document_id = self.doc_collaborator._get_document_id_from_node(node_token)
+            
+            # 方法2：如果方法1失败，尝试直接使用node_token作为document_id
             if not document_id:
-                print(f"[X] 无法获取document_id")
-                return None
+                print(f"[!] 无法通过Wiki节点获取document_id，尝试直接使用node_token...")
+                document_id = node_token
             
             # 获取文档内容
             blocks = self.doc_collaborator._get_all_blocks(document_id)
@@ -114,6 +116,7 @@ class FaultGuideReader:
                 cache_data = {
                     'cache_time': datetime.now().timestamp(),
                     'node_token': node_token,
+                    'document_id': document_id,
                     'content': doc_content
                 }
                 with open(cache_file, 'w', encoding='utf-8') as f:

@@ -1,0 +1,39 @@
+{
+  "fmea_name": "Control",
+  "steps": [
+    "architecture"
+  ],
+  "dry_run": false,
+  "timestamp": "2026-01-17T15:30:52.848302",
+  "results": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 6,
+        "created": 6,
+        "existing": 0,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "recv8xKew2fgj4",
+        "CtrlDecision": "recv8xKgMHUNag",
+        "CtrlReciver": "recv8xKjby69mO",
+        "CtrlSender": "recv8xKl6Zc1K9",
+        "LatCtrl": "recv8xKmGmVv0P",
+        "LongCtrl": "recv8xKoDqAEmj",
+        "TrajDecouple": "recv8xKr5hdac2"
+      }
+    }
+  },
+  "element_name_to_record_id": {
+    "Control": "recv8xKew2fgj4",
+    "CtrlDecision": "recv8xKgMHUNag",
+    "CtrlReciver": "recv8xKjby69mO",
+    "CtrlSender": "recv8xKl6Zc1K9",
+    "LatCtrl": "recv8xKmGmVv0P",
+    "LongCtrl": "recv8xKoDqAEmj",
+    "TrajDecouple": "recv8xKr5hdac2"
+  },
+  "function_to_record_id": {}
+}

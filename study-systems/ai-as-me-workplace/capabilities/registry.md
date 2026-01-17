@@ -1,7 +1,7 @@
 # 能力注册表
 
-**最后更新**：2026-01-16（原子能力组合框架）  
-**版本**：v2.0
+**最后更新**：2026-01-17（FMEA数据导入能力）  
+**版本**：v2.3
 
 ---
 
@@ -28,6 +28,10 @@
 | SKILL-005 | 飞书文档协作器 | skill | 通用的飞书文档协作能力包，提供简洁API支持本地Markdown编辑和飞书文档双向同步 | Python SDK | app_id, app_secret, user_access_token, space_id, doc_title, node_token | 可用 | v1.0 | 2026-01-15 | 2026-01-15 |
 | SKILL-006 | 飞书多维表格协作器 | skill | 通用的飞书多维表格协作能力包，支持CRUD操作、数据分析和总结 | Python SDK | app_id, app_secret, user_access_token, app_token, table_id | 可用 | v1.0 | 2026-01-15 | 2026-01-15 |
 | SKILL-007 | 飞书在线表格协作器 | skill | 通用的飞书在线表格协作能力包，支持数据缓存、定期同步、查询与总结 | Python SDK | app_id, app_secret, user_access_token, spreadsheet_token, sheet_id | 可用 | v1.0 | 2026-01-15 | 2026-01-15 |
+| SKILL-008 | SSH日志泛化查询引擎 | skill | 通用的SSH日志查询和提取能力，支持自定义关键字查询（模糊匹配、多关键字AND/OR组合）和自定义信息提取（正则表达式、上下文提取） | Python SDK | remote_path, keywords, extract_pattern, context_lines, logic, output_format, fuzzy_match, max_results, query_method | 可用 | v1.0 | 2026-01-16 | 2026-01-16 |
+| SKILL-009 | 故障概况提取能力 | skill | 从故障定位指引文档、"06. 安全需求总表"多维表格和功能安全业务数据中整合提取fa_id相关信息，生成综合故障概况 | Python SDK | fa_id, use_grep | 可用 | v1.0 | 2026-01-16 | 2026-01-16 |
+| SKILL-010 | Markdown转Word文档转换器 | skill | 将Markdown格式文档转换为Word格式，支持批量转换和自定义模板 | Python模块 | source_file, output_file, template_file | 可用 | v1.0 | 2025-01-15 | 2025-01-15 |
+| SKILL-011 | FMEA数据导入能力 | skill | 将飞书在线表格中的FMEA数据导入到飞书多维表格，支持架构元素、子功能清单、失效模式影响分析的完整导入流程 | Python脚本 | fmea_name, sheet_name, dry_run, skip_architecture, skip_functions, skip_fmea | 可用 | v1.0 | 2026-01-17 | 2026-01-17 |
 
 ### Skill能力详情
 - **SKILL-001 飞书API封装工具**：[feishu-api-wrapper.md](skills/skills/feishu-api-wrapper.md)
@@ -79,6 +83,30 @@
   - 所需权限：`sheets:spreadsheet:readonly` 或 `sheets:spreadsheet`
   - 特点：自动缓存、定期同步、自然语言查询、简洁API
 
+- **SKILL-008 SSH日志泛化查询引擎**：[ssh-log-query-engine.md](skills/skills/ssh-log-query-engine.md)
+  - 功能：通用的SSH日志查询和提取能力，支持自定义关键字查询和自定义信息提取
+  - 实现文件：`ssh_log_query_engine.py`
+  - 配置文件：`ssh_log_query_config.py`
+  - 使用示例：`ssh_log_query_example.py`
+  - 特点：支持模糊匹配、多关键字AND/OR组合、正则表达式提取、上下文提取、自动选择查询方式
+
+- **SKILL-009 故障概况提取能力**：[fault-profile-extractor.md](skills/skills/fault-profile-extractor.md)
+  - 功能：从故障定位指引文档、"06. 安全需求总表"多维表格和功能安全业务数据中整合提取fa_id相关信息，生成综合故障概况
+  - 实现文件：`fault_profile_extractor.py`
+  - 使用场景：故障分析、安全需求分析
+
+- **SKILL-010 Markdown转Word文档转换器**：[document-converter.md](skills/document-converter.md)
+  - 功能：将Markdown格式文档转换为Word格式，支持批量转换和自定义模板
+  - 实现文件：`document-converter/converter.py`
+  - 使用场景：工作文档转换、项目文档转换、批量文档转换
+  - 特点：支持批量转换、自定义模板、格式保持、跨平台支持
+
+- **SKILL-011 FMEA数据导入能力**：[SKILL-011-FMEA-Import.md](skills/skills/SKILL-011-FMEA-Import.md)
+  - 功能：将飞书在线表格中的FMEA数据导入到飞书多维表格，支持架构元素、子功能清单、失效模式影响分析的完整导入流程
+  - 实现文件：`import_fmea_complete.py`、`import_architecture_elements.py`、`import_functions.py`、`import_failure_modes.py`、`fmea_data_reader.py`
+  - 使用场景：批量导入FMEA数据、数据迁移、数据同步
+  - 特点：支持富文本处理、合并单元格处理、Element Name推断、跳过条目详细记录、导入报告生成
+
 ---
 
 ## Agent能力
@@ -123,14 +151,14 @@
 ## 能力统计
 
 ### 按类型统计
-- **Skill能力**：6个
+- **Skill能力**：11个
 - **Agent能力**：0个
 - **MCP能力**：1个
 - **本地工具**：1个
-- **总计**：8个
+- **总计**：13个
 
 ### 按状态统计
-- **可用**：8个
+- **可用**：13个
 - **不可用**：0个
 - **维护中**：0个
 - **已废弃**：0个
@@ -148,7 +176,9 @@
 | 2026-01-15 | SKILL-005 | 注册 | v1.0 | 飞书文档协作器（通用文档协作能力包） |
 | 2026-01-15 | SKILL-006 | 注册 | v1.0 | 飞书多维表格协作器（通用多维表格协作能力包） |
 | 2026-01-15 | SKILL-007 | 注册 | v1.0 | 飞书在线表格协作器 |
-| 2026-01-16 | SKILL-008 | 注册 | v1.0 | 单号查询故障信息能力 |
+| 2026-01-16 | SKILL-008 | 注册 | v1.0 | SSH日志泛化查询引擎 |
+| 2026-01-16 | SKILL-009 | 注册 | v1.0 | 故障概况提取能力 |
+| 2026-01-17 | SKILL-011 | 注册 | v1.0 | FMEA数据导入能力 |
 | 2026-01-13 | MCP-001 | 注册 | v1.0 | 飞书API集成 |
 | 2026-01-13 | TOOL-001 | 注册 | v1.0 | Pandoc文档转换器 |
 | 2026-01-16 | FRAMEWORK-001 | 新增 | v1.0 | 原子能力标准化抽象层 |

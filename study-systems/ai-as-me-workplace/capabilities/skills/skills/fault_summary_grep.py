@@ -81,15 +81,21 @@ class FaultSummaryGrep:
         # 在所有表中搜索Fault ID相关信息
         summary_parts = []
         
-        # 遍历所有表
-        tables = cache_data.get('tables', [])
-        if not isinstance(tables, list):
+        # 遍历所有表（支持字典和列表两种格式）
+        tables_data = cache_data.get('tables', {})
+        
+        # 如果是字典格式（表名->表数据）
+        if isinstance(tables_data, dict):
+            tables = [(name, data) for name, data in tables_data.items()]
+        # 如果是列表格式
+        elif isinstance(tables_data, list):
+            tables = [(table.get('name', ''), table) for table in tables_data if isinstance(table, dict)]
+        else:
             tables = []
         
-        for table in tables:
+        for table_name, table in tables:
             if not isinstance(table, dict):
                 continue
-            table_name = table.get('name', '')
             records = table.get('records', [])
             if not isinstance(records, list):
                 records = []

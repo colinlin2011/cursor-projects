@@ -18,8 +18,23 @@ from bitable_cache_manager import BitableCacheManager, BITABLE_CONFIGS
 # 配置信息
 APP_ID = "cli_a9c92ca516f99bd9"
 APP_SECRET = "zlOKnyZkSuSUSr0WlAl6qbh5Qw4eM6wC"
-USER_ACCESS_TOKEN = os.getenv("FEISHU_USER_ACCESS_TOKEN", "u-fjEA3Zj5J4eGr.QY6KVnXg14hgJ04kgVOOwaFMy024ps")
 SPACE_ID = "7353073903872868356"
+
+# 尝试从token_manager获取token，如果失败则使用环境变量或默认值
+def get_user_access_token():
+    """获取有效的user_access_token（自动刷新）"""
+    try:
+        from token_manager import get_user_access_token as get_token
+        token = get_token()
+        if token:
+            return token
+    except ImportError:
+        pass
+    except Exception as e:
+        print(f"[!] 无法从token_manager获取token: {e}")
+    
+    # 回退到环境变量或默认值
+    return os.getenv("FEISHU_USER_ACCESS_TOKEN", "u-fjEA3Zj5J4eGr.QY6KVnXg14hgJ04kgVOOwaFMy024ps")
 
 # 同步配置
 SYNC_INTERVAL_HOURS = 1  # 默认每小时同步一次
@@ -29,10 +44,16 @@ def sync_all_bitables():
     """同步所有多维表格"""
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 开始自动同步...")
     
+    # 自动获取有效的token（会自动刷新）
+    user_access_token = get_user_access_token()
+    if not user_access_token:
+        print("[X] 无法获取有效的访问令牌，请先运行授权脚本获取token")
+        return False
+    
     manager = BitableCacheManager(
         app_id=APP_ID,
         app_secret=APP_SECRET,
-        user_access_token=USER_ACCESS_TOKEN,
+        user_access_token=user_access_token,
         space_id=SPACE_ID
     )
     
@@ -94,13 +115,14 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description='多维表格自动同步服务')
     parser.add_argument('--once', action='store_true', help='只执行一次同步，不启动定时任务')
-    parser.add_argument('--interval', type=int, default=SYNC_INTERVAL_HOURS, help='同步间隔（小时）')
+    parser.add_argument('--interval', type=int, default=1, help='同步间隔（小时），默认1小时')
     
     args = parser.parse_args()
     
     if args.once:
         sync_once()
     else:
-        global SYNC_INTERVAL_HOURS
-        SYNC_INTERVAL_HOURS = args.interval
+        # 更新同步间隔（使用模块级别的变量）
+        import auto_sync_bitable
+        auto_sync_bitable.SYNC_INTERVAL_HOURS = args.interval
         run_scheduler()

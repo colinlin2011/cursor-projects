@@ -1,0 +1,44 @@
+{
+  "fmea_name": "08_SceneNet_System_SW_FMEA",
+  "timestamp": "2026-01-17T20:14:32.839298",
+  "dry_run": false,
+  "steps": {
+    "architecture": {
+      "success": true,
+      "stats": {
+        "total": 0,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "errors": []
+      },
+      "element_name_to_record_id": {
+        "Control": "rec26pFCvVfGt4"
+      }
+    },
+    "function": {
+      "success": true,
+      "stats": {
+        "total": 0,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+        "skipped_items": []
+      },
+      "function_to_record_id": {}
+    },
+    "fmea": {
+      "success": false,
+      "stats": {
+        "total": 11,
+        "created": 0,
+        "existing": 0,
+        "failed": 0,
+        "skipped": 11,
+        "errors": []
+      }
+    }
+  }
+}
