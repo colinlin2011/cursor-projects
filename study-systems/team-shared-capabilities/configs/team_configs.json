@@ -1,0 +1,141 @@
+{
+  "version": "1.0",
+  "description": "团队统一配置文件 - 功能安全部门共享配置",
+  "last_updated": "2026-01-20",
+  
+  "feishu": {
+    "description": "飞书统一配置",
+    "space_id": "7353073903872868356",
+    "app_id": "cli_a9c92ca516f99bd9",
+    "default_sync_interval_hours": 24,
+    "default_cache_expiry_hours": 24,
+    "note": "敏感信息（Token、Secret）需单独管理，不在此配置中"
+  },
+  
+  "shared_resources": {
+    "description": "团队共享的飞书资源配置",
+    "documents": {
+      "description": "团队共享的飞书云文档（Wiki文档）配置",
+      "cache_dir": "work/fault_diagnosis_cache/guides",
+      "sync_script": "sync_fault_guides.py",
+      "cache_expiry_hours": 24,
+      "items": [
+        {
+          "id": "team_doc_001",
+          "name": "团队共享文档示例",
+          "category": "团队文档",
+          "enabled": true,
+          "sync_interval_hours": 24,
+          "description": "团队共享文档示例，团队成员可以添加自己的文档配置",
+          "note": "node_token和url需在个人配置中填写"
+        }
+      ]
+    },
+    
+    "bitables": {
+      "description": "团队共享的飞书多维表格配置",
+      "cache_dir": "work/bitable_cache",
+      "sync_script": "auto_sync_bitable.py",
+      "cache_expiry_hours": 24,
+      "items": [
+        {
+          "id": "team_bitable_001",
+          "name": "功能安全部人力盘点",
+          "node_token": "CGMnwhxzLixWhGk87jYcDRfonsh",
+          "url": "https://zyt.feishu.cn/wiki/CGMnwhxzLixWhGk87jYcDRfonsh",
+          "cache_file": "hr_inventory.json",
+          "category": "人力资源",
+          "enabled": true,
+          "sync_interval_hours": 24,
+          "description": "功能安全部人力盘点表（团队共享）"
+        },
+        {
+          "id": "team_bitable_002",
+          "name": "功能安全业务数据",
+          "node_token": "BPddwBxoRiPFSsk8jZJctCMmndg",
+          "url": "https://zyt.feishu.cn/wiki/BPddwBxoRiPFSsk8jZJctCMmndg",
+          "cache_file": "new_bitable.json",
+          "category": "业务数据",
+          "enabled": true,
+          "sync_interval_hours": 24,
+          "description": "功能安全业务数据多维表格，包含缺陷问题闭环表（团队共享）"
+        }
+      ]
+    },
+    
+    "spreadsheets": {
+      "description": "团队共享的飞书在线表格配置",
+      "cache_dir": "work/spreadsheet_cache",
+      "sync_script": "auto_sync_spreadsheet.py",
+      "cache_expiry_hours": 24,
+      "items": [
+        {
+          "id": "team_spreadsheet_001",
+          "name": "团队共享表格示例",
+          "category": "团队表格",
+          "enabled": true,
+          "sync_interval_hours": 24,
+          "description": "团队共享表格示例，团队成员可以添加自己的表格配置",
+          "note": "node_token和url需在个人配置中填写"
+        }
+      ]
+    }
+  },
+  
+  "shared_tokens": {
+    "description": "团队共享的Token配置说明",
+    "note": "敏感信息（Token、Secret、密码）不应在此配置文件中，应使用以下方式管理：",
+    "management_methods": [
+      "环境变量：使用系统环境变量存储敏感信息",
+      "个人配置：在个人工作空间的配置文件中单独管理",
+      "加密配置：使用加密配置文件（需团队统一管理）",
+      "密钥管理服务：使用专业的密钥管理服务"
+    ],
+    "template": {
+      "description": "Token配置模板（不包含实际值）",
+      "plugin_id": "[团队插件ID]",
+      "plugin_secret": "[团队插件Secret]",
+      "app_id": "[应用ID]",
+      "app_secret": "[应用Secret]",
+      "user_access_token": "[用户访问Token]",
+      "note": "实际值需在个人配置或环境变量中设置"
+    }
+  },
+  
+  "usage_guidelines": {
+    "description": "配置使用指南",
+    "inheritance": {
+      "description": "个人配置继承团队配置",
+      "steps": [
+        "1. 使用 sync_config.py 同步团队配置到个人配置",
+        "2. 个人配置会自动继承团队共享资源",
+        "3. 可以在个人配置中添加个人专用资源",
+        "4. 个人配置优先级高于团队配置"
+      ]
+    },
+    "adding_resources": {
+      "description": "添加新资源",
+      "steps": [
+        "1. 在团队配置中添加资源配置（如需要团队共享）",
+        "2. 或在个人配置中添加资源配置（个人专用）",
+        "3. 运行对应的同步脚本更新缓存",
+        "4. 验证资源访问正常"
+      ]
+    },
+    "conflict_resolution": {
+      "description": "配置冲突处理",
+      "rules": [
+        "个人配置优先级高于团队配置",
+        "相同ID的资源，个人配置会覆盖团队配置",
+        "建议使用不同的ID避免冲突",
+        "冲突时会在同步时提示"
+      ]
+    }
+  },
+  
+  "metadata": {
+    "maintainer": "功能安全部门",
+    "update_frequency": "按需更新",
+    "contact": "[待填写]"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "飞书资源统一配置文件 - 包含云文档、多维表格、在线表格的配置",
-  "last_updated": "2026-01-17",
+  "last_updated": "2026-01-20",
   
   "documents": {
     "description": "飞书云文档（Wiki文档）配置",
@@ -85,6 +85,17 @@
         "enabled": true,
         "sync_interval_hours": 24,
         "description": "个人工作记录文档"
+      },
+      {
+        "id": "doc_003",
+        "name": "团队Cursor作业应用案例",
+        "node_token": "TeNzwldvOiKgfBkdoLRcsZFHngh",
+        "url": "https://zyt.feishu.cn/wiki/TeNzwldvOiKgfBkdoLRcsZFHngh",
+        "cache_file": "guide_TeNzwldvOiKgfBkdoLRcsZFHngh.json",
+        "category": "团队协作",
+        "enabled": true,
+        "sync_interval_hours": 24,
+        "description": "团队Cursor作业应用案例文档"
       }
     ]
   },

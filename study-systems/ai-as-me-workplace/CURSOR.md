@@ -977,6 +977,81 @@ python capabilities/skills/skills/view_feishu_config.py --id doc_001
 
 **使用建议**：在给Agent发指令前，先完成上述检查清单，确保指令清晰、高效，充分利用现有能力。
 
+## 团队共享能力
+
+### 团队共享能力库
+
+团队共享的能力库位于：`../team-shared-capabilities/`
+
+这是功能安全部门（33人）共同使用的Cursor作业能力库，旨在实现：
+- **个人能力共享给团队**：个人开发的能力可以被团队复用
+- **团队能力被个人使用**：团队沉淀的能力可以被个人使用
+- **形成复利效应**：每次使用都积累价值，重复利用产生复利
+- **降低使用门槛**：团队成员可以轻松发现和使用共享能力
+
+### 使用团队能力
+
+#### 方法1：查看能力注册表
+```bash
+# 打开团队能力注册表
+code ../team-shared-capabilities/capabilities/registry.md
+```
+
+#### 方法2：使用能力发现工具
+```bash
+# 搜索能力
+python ../team-shared-capabilities/scripts/discover_capabilities.py --search "关键词"
+
+# 按场景推荐
+python ../team-shared-capabilities/scripts/discover_capabilities.py --scenario "场景名称"
+
+# 查看使用统计
+python ../team-shared-capabilities/scripts/discover_capabilities.py --stats
+```
+
+#### 方法3：同步团队配置
+```bash
+# 同步团队配置到个人配置
+python ../team-shared-capabilities/scripts/sync_config.py \
+    --source configs/team_configs.json \
+    --target work/feishu_resources_config.json \
+    --merge
+```
+
+### 贡献能力到团队
+
+#### 贡献流程
+1. 开发能力并验证可用性
+2. 使用贡献脚本提交：
+   ```bash
+   python ../team-shared-capabilities/scripts/contribute_capability.py \
+       --capability-path capabilities/skills/skills/my_skill.py \
+       --name "我的能力" \
+       --description "能力描述" \
+       --category "工具类" \
+       --contributor "姓名"
+   ```
+3. 填写贡献信息
+4. 自动注册到团队注册表
+
+详细说明：[../team-shared-capabilities/README.md](../team-shared-capabilities/README.md)
+
+### 团队能力使用原则
+
+1. **优先使用团队能力**：在使用能力前，先查看团队能力注册表
+2. **及时贡献能力**：开发了通用能力后，及时贡献到团队
+3. **持续优化**：使用后提供反馈，帮助改进能力
+
+### 相关文档
+
+- [团队共享库README](../team-shared-capabilities/README.md)
+- [团队能力注册表](../team-shared-capabilities/capabilities/registry.md)
+- [能力贡献模板](../team-shared-capabilities/CONTRIBUTION-TEMPLATE.md)
+- [使用记录](../team-shared-capabilities/usage/usage-history.md)
+- [贡献者列表](../team-shared-capabilities/contributors/contributors.md)
+
+---
+
 ## 记录规范
 
 ### 工作记录
